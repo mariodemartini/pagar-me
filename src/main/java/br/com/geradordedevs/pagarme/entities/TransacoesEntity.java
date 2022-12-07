@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Entity
 @Data
@@ -22,7 +21,10 @@ public class TransacoesEntity {
     private MetodoPagamentoEnum metodoPagamentoEnum;
     private String numeroCartao;
     private String nomePortador;
-    private LocalDate validadeCartao;
+    private String validadeCartao;
     private String cvv;
+    @ManyToOne
+    @JoinColumn(name = "pagamento_id")
+    private PagamentoEntity pagamento;
 
 }
