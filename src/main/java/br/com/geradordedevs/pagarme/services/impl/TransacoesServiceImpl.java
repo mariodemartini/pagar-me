@@ -25,4 +25,10 @@ public class TransacoesServiceImpl implements TransacoesService {
         }
         return transacoesEntities;
     }
+
+    @Override
+    public TransacoesEntity cadastrarTransacao(TransacoesEntity transacoesEntity){
+        log.info("cadastrando nova transação: {}", transacoesEntity);
+        return transacoesRepository.save(transacoesEntity);
+    }
 }
