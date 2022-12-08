@@ -27,4 +27,8 @@ public class TransacoesEntity {
     @JoinColumn(name = "pagamento_id")
     private PagamentoEntity pagamento;
 
+    public void setNumeroCartao(String numeroCartao) {
+        numeroCartao.substring(numeroCartao.length()-4);
+        this.numeroCartao = numeroCartao;
+    }
 }
