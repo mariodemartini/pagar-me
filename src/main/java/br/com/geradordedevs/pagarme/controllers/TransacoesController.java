@@ -1,5 +1,7 @@
 package br.com.geradordedevs.pagarme.controllers;
 
+import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
+import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.services.TransacoesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +16,13 @@ public class TransacoesController {
     private TransacoesService transacoesService;
 
     @GetMapping
-    public List<TransacoesEntity> listarTransacoes(){
+    public List<TransacoesResponseDTO> listarTransacoes(){
         return transacoesService.listaTransacoes();
     }
 
     @PostMapping
-    public TransacoesEntity cadastrarTransacao(@RequestBody TransacoesEntity transacoesEntity){
-        return transacoesService.cadastrarTransacao(transacoesEntity);
+    public TransacoesResponseDTO cadastrarTransacao(@RequestBody TransacoesRequestDTO requestDTO){
+        return transacoesService.cadastrarTransacao(requestDTO);
     }
 
 }
