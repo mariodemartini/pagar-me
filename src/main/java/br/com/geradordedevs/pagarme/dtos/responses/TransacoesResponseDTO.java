@@ -1,5 +1,6 @@
 package br.com.geradordedevs.pagarme.dtos.responses;
 
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +20,5 @@ public class TransacoesResponseDTO {
     private String nomePortador;
     private String validadeCartao;
     private String cvv;
-    private Long pagamento;
+    private PagamentoEntity pagamento;
 }
