@@ -2,7 +2,9 @@ package br.com.geradordedevs.pagarme.services.impl;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
+import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
 import br.com.geradordedevs.pagarme.repositories.PagamentoRepository;
 import br.com.geradordedevs.pagarme.repositories.TransacoesRepository;
@@ -12,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,6 @@ import static br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum.DEBIT_CARD;
 public class TransacoesServiceImpl implements TransacoesService {
     @Autowired
     private PagamentoRepository pagamentoRepository;
-
     @Autowired
     private TransacoesRepository transacoesRepository;
     @Autowired
@@ -42,11 +44,8 @@ public class TransacoesServiceImpl implements TransacoesService {
 
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO){
-        if (pagamentoService.criarPagamento(DEBIT_CARD)){
-            requestDTO.setMetodoPagamentoEnum(DEBIT_CARD);
-        } else {
-            requestDTO.setMetodoPagamentoEnum(CREDIT_CARD);
-        }
+        log.info("cadastrando nova transação: {}",requestDTO);
+        requestDTO.setPagamento(pagamentoService.criarPagamento(requestDTO.getMetodoPagamentoEnum()).getId());
         return transacoesMapper.paraDTO(transacoesRepository.save(transacoesMapper.paraEntidade(requestDTO)));
     }
 
