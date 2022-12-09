@@ -1,5 +1,6 @@
 package br.com.geradordedevs.pagarme.mapper;
 
+import br.com.geradordedevs.pagarme.dtos.requests.PagamentoResquestDTO;
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
@@ -21,6 +22,10 @@ public class PagamentoMapper {
 
     public PagamentoResponseDTO paraDTO(PagamentoEntity pagamento){
         return mapper.map(pagamento, PagamentoResponseDTO.class);
+    }
+
+    public PagamentoEntity paraEntity(PagamentoResquestDTO resquestDTO){
+        return mapper.map(resquestDTO, PagamentoEntity.class);
     }
 
 
