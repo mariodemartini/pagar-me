@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PagamentoResponseDTO {
-    private Long id;
     private String status;
     private LocalDate dataPagamento;
 }
