@@ -2,9 +2,8 @@ package br.com.geradordedevs.pagarme.services.impl;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
-import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
-import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
+import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
 import br.com.geradordedevs.pagarme.repositories.PagamentoRepository;
 import br.com.geradordedevs.pagarme.repositories.TransacoesRepository;
@@ -14,12 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum.CREDIT_CARD;
-import static br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum.DEBIT_CARD;
 
 @Service
 @Slf4j
@@ -31,22 +26,26 @@ public class TransacoesServiceImpl implements TransacoesService {
     @Autowired
     private TransacoesMapper transacoesMapper;
     @Autowired
+    private PagamentoMapper pagamentoMapper;
+    @Autowired
     private PagamentoService pagamentoService;
+
     @Override
-    public List<TransacoesResponseDTO> listaTransacoes() {
+    public List<TransacoesEntity> listaTransacoes() {
         log.info("listando as transações");
         List<TransacoesEntity> transacoesEntities = new ArrayList<>();
         for (TransacoesEntity transacoesEntity : transacoesRepository.findAll()) {
             transacoesEntities.add(transacoesEntity);
         }
-        return transacoesMapper.paraListaDTO(transacoesEntities);
+        return transacoesEntities;
     }
 
     @Override
-    public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO){
-        log.info("cadastrando nova transação: {}",requestDTO);
-        requestDTO.setPagamento(pagamentoService.criarPagamento(requestDTO.getMetodoPagamentoEnum()).getId());
-        return transacoesMapper.paraDTO(transacoesRepository.save(transacoesMapper.paraEntidade(requestDTO)));
+    public TransacoesEntity cadastrarTransacao(TransacoesEntity transacoes){
+        log.info("cadastrando nova transação: {}",transacoes);
+        log.info("retorno metodoPagamento: {}", transacoes.getMetodoPagamento());
+        transacoes.setPagamento(pagamentoService.criarPagamento(transacoes.getMetodoPagamento()));
+        return transacoesRepository.save(transacoes);
     }
 
 }
