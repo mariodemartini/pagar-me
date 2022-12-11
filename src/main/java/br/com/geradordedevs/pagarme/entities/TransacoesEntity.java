@@ -18,7 +18,7 @@ public class TransacoesEntity {
     private Long id;
     private BigDecimal valorTransacao;
     private String descricaoTransacao;
-    private MetodoPagamentoEnum metodoPagamentoEnum;
+    private MetodoPagamentoEnum metodoPagamento;
     private String numeroCartao;
     private String nomePortador;
     private String validadeCartao;
