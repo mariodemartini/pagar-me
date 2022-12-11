@@ -1,5 +1,7 @@
 package br.com.geradordedevs.pagarme.dtos.requests;
 
+import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +15,11 @@ import java.math.BigDecimal;
 public class TransacoesRequestDTO {
     private BigDecimal valorTransacao;
     private String descricaoTransacao;
-    private MetodoPagamentoEnum metodoPagamentoEnum;
+    private MetodoPagamentoEnum metodoPagamento;
     private String numeroCartao;
     private String nomePortador;
     private String validadeCartao;
     private String cvv;
-    private Long pagamento;
+    private PagamentoEntity pagamento;
+
 }
