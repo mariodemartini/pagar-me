@@ -24,8 +24,8 @@ public class PagamentoMapper {
         return mapper.map(pagamento, PagamentoResponseDTO.class);
     }
 
-    public PagamentoEntity paraEntity(PagamentoResquestDTO resquestDTO){
-        return mapper.map(resquestDTO, PagamentoEntity.class);
+    public PagamentoEntity paraEntity(PagamentoResquestDTO pagamentoResquestDTO){
+        return mapper.map(pagamentoResquestDTO, PagamentoEntity.class);
     }
 
 
