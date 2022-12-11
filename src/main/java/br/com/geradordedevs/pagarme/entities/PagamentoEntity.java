@@ -1,5 +1,6 @@
 package br.com.geradordedevs.pagarme.entities;
 
+import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ public class PagamentoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String status;
+    private StatusPagamentoEnum status;
     private LocalDate dataPagamento;
 
 }
