@@ -57,6 +57,7 @@ public class TransacoesServiceImpl implements TransacoesService {
     public SaldoResponseDTO consultarSaldo(BigDecimal valor){
         BigDecimal saldoDebito = BigDecimal.ZERO;
         BigDecimal saldoCredito = BigDecimal.ZERO;
+        log.info("consultando saldo");
         for (TransacoesEntity transacoesEntity : transacoesRepository.findAll()) {
             if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
                 BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.03")));
