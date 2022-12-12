@@ -18,13 +18,13 @@ public class TransacoesController {
     private TransacoesService transacoesService;
 
     @GetMapping
-    public List<TransacoesEntity> listarTransacoes(){
+    public List<TransacoesResponseDTO> listarTransacoes(){
         return transacoesService.listaTransacoes();
     }
 
     @PostMapping
-    public TransacoesEntity cadastrarTransacao(@RequestBody TransacoesEntity transacoes){
-        return transacoesService.cadastrarTransacao(transacoes);
+    public TransacoesResponseDTO cadastrarTransacao(@RequestBody TransacoesRequestDTO transacoesRequestDTO){
+        return transacoesService.cadastrarTransacao(transacoesRequestDTO);
     }
 
     @DeleteMapping("/{id}")

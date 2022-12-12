@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface TransacoesService {
 
-    List<TransacoesEntity> listaTransacoes();
-    TransacoesEntity cadastrarTransacao(TransacoesEntity transacoes);
+    List<TransacoesResponseDTO> listaTransacoes();
+    TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO transacoesRequestDTO);
     void deletarTransacao(Long id);
 }
