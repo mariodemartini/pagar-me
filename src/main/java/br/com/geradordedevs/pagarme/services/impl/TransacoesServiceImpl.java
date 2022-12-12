@@ -48,4 +48,11 @@ public class TransacoesServiceImpl implements TransacoesService {
         return transacoesRepository.save(transacoes);
     }
 
+    @Override
+    public void deletarTransacao(Long id) {
+        log.info("removendo transação id {}", id);
+        transacoesRepository.deleteById(id);
+
+    }
+
 }

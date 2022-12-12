@@ -10,4 +10,5 @@ public interface TransacoesService {
 
     List<TransacoesEntity> listaTransacoes();
     TransacoesEntity cadastrarTransacao(TransacoesEntity transacoes);
+    void deletarTransacao(Long id);
 }
