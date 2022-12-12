@@ -52,20 +52,20 @@ public class TransacoesServiceImpl implements TransacoesService {
         transacoesRepository.deleteById(id);
     }
 
-//    public void consultarSaldo(BigDecimal valor){
-//        BigDecimal saldoDebito = BigDecimal.ZERO;
-//        BigDecimal saldoCredito = BigDecimal.ZERO;
-//        for (TransacoesEntity transacoesEntity : transacoesRepository.findAll()) {
-//            if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
-//                BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.03")));
-//                BigDecimal valorTaxado = transacoesEntity.getValorTransacao().subtract(taxa);
-//                saldoDebito = saldoDebito.add(valorTaxado);
-//            }
-//            if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
-//                BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.05")));
-//                BigDecimal valorTaxado = transacoesEntity.getValorTransacao().subtract(taxa);
-//                saldoCredito = saldoCredito.add(valorTaxado);
-//            }
-//        }
-//    }
+    public void consultarSaldo(BigDecimal valor){
+        BigDecimal saldoDebito = BigDecimal.ZERO;
+        BigDecimal saldoCredito = BigDecimal.ZERO;
+        for (TransacoesEntity transacoesEntity : transacoesRepository.findAll()) {
+            if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
+                BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.03")));
+                BigDecimal valorTaxado = transacoesEntity.getValorTransacao().subtract(taxa);
+                saldoDebito = saldoDebito.add(valorTaxado);
+            }
+            if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
+                BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.05")));
+                BigDecimal valorTaxado = transacoesEntity.getValorTransacao().subtract(taxa);
+                saldoCredito = saldoCredito.add(valorTaxado);
+            }
+        }
+    }
 }
