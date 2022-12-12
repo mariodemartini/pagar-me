@@ -27,4 +27,9 @@ public class TransacoesController {
         return transacoesService.cadastrarTransacao(transacoes);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletarTransacao(@PathVariable Long id){
+        transacoesService.deletarTransacao(id);
+    }
+
 }
