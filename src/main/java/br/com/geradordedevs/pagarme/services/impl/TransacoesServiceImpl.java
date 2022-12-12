@@ -1,6 +1,7 @@
 package br.com.geradordedevs.pagarme.services.impl;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
+import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
@@ -53,7 +54,7 @@ public class TransacoesServiceImpl implements TransacoesService {
         transacoesRepository.deleteById(id);
     }
 
-    public void consultarSaldo(BigDecimal valor){
+    public SaldoResponseDTO consultarSaldo(BigDecimal valor){
         BigDecimal saldoDebito = BigDecimal.ZERO;
         BigDecimal saldoCredito = BigDecimal.ZERO;
         for (TransacoesEntity transacoesEntity : transacoesRepository.findAll()) {
@@ -68,5 +69,9 @@ public class TransacoesServiceImpl implements TransacoesService {
                 saldoCredito = saldoCredito.add(valorTaxado);
             }
         }
+        SaldoResponseDTO saldoResponseDTO = new SaldoResponseDTO();
+        saldoResponseDTO.setSaldoCredito(saldoCredito);
+        saldoResponseDTO.setSaldoDebito(saldoDebito);
+        return saldoResponseDTO;
     }
 }
