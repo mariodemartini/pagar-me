@@ -26,6 +26,6 @@ services:
       - MYSQL_USER=db_pagarme
       - MYSQL_PASSWORD=123456
     ports:
-      - 3308:3306
+      - 3309:3306
     volumes:
       - ./data/db:/data/db
