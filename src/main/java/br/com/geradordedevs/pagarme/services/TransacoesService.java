@@ -1,17 +1,12 @@
 package br.com.geradordedevs.pagarme.services;
 
-import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
-import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
-import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
-
-import java.math.BigDecimal;
-import java.util.List;
+import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 
 public interface TransacoesService {
 
-    List<TransacoesResponseDTO> listaTransacoes();
-    TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO transacoesRequestDTO);
+    Iterable<TransacoesEntity> listarTransacoes();
+
+    TransacoesEntity cadastrarTransacao(TransacoesEntity transacoesEntity);
     void deletarTransacao(Long id);
-    SaldoResponseDTO consultarSaldo(BigDecimal valor);
 
 }
