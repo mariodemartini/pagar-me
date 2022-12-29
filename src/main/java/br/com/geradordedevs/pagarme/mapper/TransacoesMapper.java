@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,8 +26,10 @@ public class TransacoesMapper {
         return mapper.map(requestDTO, TransacoesEntity.class);
     }
 
-    public List<TransacoesResponseDTO> paraListaDTO(List<TransacoesEntity> lista){
-        return lista.stream()
+    public List<TransacoesResponseDTO> paraListaDTO(Iterable<TransacoesEntity> lista){
+        List<TransacoesEntity> resultado = new ArrayList<>();
+        lista.forEach(resultado::add);
+        return resultado.stream()
                 .map(this::paraDTO)
                 .collect(Collectors.toList());
     }
