@@ -21,4 +21,16 @@ public class TransacoesRequestDTO {
     private String cvv;
     private PagamentoEntity pagamento;
 
+    @Override
+    public String toString() {
+        return "TransacoesRequestDTO{" +
+                "valorTransacao=" + valorTransacao +
+                ", descricaoTransacao='" + descricaoTransacao + '\'' +
+                ", metodoPagamento=" + metodoPagamento +
+                ", numeroCartao='" + numeroCartao + '\'' +
+                ", nomePortador='" + nomePortador + '\'' +
+                ", validadeCartao='" + validadeCartao + '\'' +
+                ", pagamento=" + pagamento +
+                '}';
+    }
 }
