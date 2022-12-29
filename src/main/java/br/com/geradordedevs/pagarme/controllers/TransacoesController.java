@@ -3,7 +3,7 @@ package br.com.geradordedevs.pagarme.controllers;
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
-import br.com.geradordedevs.pagarme.services.TransacoesService;
+import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,26 +13,26 @@ import java.util.List;
 @RequestMapping("/transacoes")
 public class TransacoesController {
     @Autowired
-    private TransacoesService transacoesService;
+    private TransacoesFacade transacoesFacade;
 
     @GetMapping
     public List<TransacoesResponseDTO> listarTransacoes(){
-        return transacoesService.listaTransacoes();
+        return transacoesFacade.listaTransacoes();
     }
 
     @PostMapping
     public TransacoesResponseDTO cadastrarTransacao(@RequestBody TransacoesRequestDTO transacoesRequestDTO){
-        return transacoesService.cadastrarTransacao(transacoesRequestDTO);
+        return transacoesFacade.cadastrarTransacao(transacoesRequestDTO);
     }
 
     @DeleteMapping("/{id}")
     public void deletarTransacao(@PathVariable Long id){
-        transacoesService.deletarTransacao(id);
+        transacoesFacade.deletarTransacao(id);
     }
 
     @GetMapping("/saldo")
     public SaldoResponseDTO consultarSaldo(TransacoesRequestDTO requestDTO){
-        SaldoResponseDTO saldoResponseDTO = transacoesService.consultarSaldo(requestDTO.getValorTransacao());
+        SaldoResponseDTO saldoResponseDTO = transacoesFacade.consultarSaldo(requestDTO.getValorTransacao());
         return saldoResponseDTO;
     }
 
