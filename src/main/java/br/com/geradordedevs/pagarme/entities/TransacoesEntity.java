@@ -36,4 +36,18 @@ public class TransacoesEntity {
         String ultimosDigitos = numeroCartao.substring(numeroCartao.length() - 4);
         return ultimosDigitos;
     }
+
+    @Override
+    public String toString() {
+        return "TransacoesEntity{" +
+                "id=" + id +
+                ", valorTransacao=" + valorTransacao +
+                ", descricaoTransacao='" + descricaoTransacao + '\'' +
+                ", metodoPagamento=" + metodoPagamento +
+                ", numeroCartao='" + numeroCartao + '\'' +
+                ", nomePortador='" + nomePortador + '\'' +
+                ", validadeCartao='" + validadeCartao + '\'' +
+                ", pagamento=" + pagamento +
+                '}';
+    }
 }
