@@ -33,6 +33,7 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
 
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
+        requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
         requestDTO.setPagamento(pagamentoService.criarPagamento(requestDTO.getMetodoPagamento()));
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
     }
@@ -62,5 +63,11 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
         saldoResponseDTO.setSaldoCredito(saldoCredito);
         saldoResponseDTO.setSaldoDebito(saldoDebito);
         return saldoResponseDTO;
+    }
+
+    private String escondeNumeroCartao(String numero){
+        final String digitosCartao = "**** **** **** ";
+        String ultimosDigitos = numero.substring(numero.length() - 4);
+        return digitosCartao + ultimosDigitos;
     }
 }
