@@ -26,17 +26,7 @@ public class TransacoesEntity {
     @ManyToOne
     @JoinColumn(name = "pagamento_id")
     private PagamentoEntity pagamento;
-
-    public void setNumeroCartao(String numeroCartao) {
-        String ultimosDigitos = numeroCartao.substring(numeroCartao.length() - 4);
-        this.numeroCartao = ultimosDigitos;
-    }
-
-    public String getNumeroCartao() {
-        String ultimosDigitos = numeroCartao.substring(numeroCartao.length() - 4);
-        return ultimosDigitos;
-    }
-
+    
     @Override
     public String toString() {
         return "TransacoesEntity{" +
