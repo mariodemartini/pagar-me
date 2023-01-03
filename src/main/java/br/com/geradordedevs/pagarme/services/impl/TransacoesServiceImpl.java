@@ -13,7 +13,6 @@ public class TransacoesServiceImpl implements TransacoesService {
     @Autowired
     private TransacoesRepository transacoesRepository;
 
-
     @Override
     public Iterable<TransacoesEntity> listarTransacoes() {
         log.info("listando as transações");
@@ -31,6 +30,4 @@ public class TransacoesServiceImpl implements TransacoesService {
         log.info("removendo transação id {}", id);
         transacoesRepository.deleteById(id);
     }
-
-
 }
