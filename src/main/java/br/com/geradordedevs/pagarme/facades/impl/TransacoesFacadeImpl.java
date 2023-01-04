@@ -5,6 +5,8 @@ import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
+import br.com.geradordedevs.pagarme.exceptions.TransacoesException;
+import br.com.geradordedevs.pagarme.exceptions.enums.TransacoesEnum;
 import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
 import br.com.geradordedevs.pagarme.services.PagamentoService;
@@ -33,6 +35,9 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
 
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
+        if (requestDTO == null){
+            throw new TransacoesException(TransacoesEnum.TRANSACAO_INVALIDA);
+        }
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
         requestDTO.setPagamento(pagamentoService.criarPagamento(requestDTO.getMetodoPagamento()));
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
