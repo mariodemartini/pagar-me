@@ -7,6 +7,7 @@ import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class TransacoesController {
     }
 
     @PostMapping
-    public TransacoesResponseDTO cadastrarTransacao(@RequestBody TransacoesRequestDTO transacoesRequestDTO){
+    public TransacoesResponseDTO cadastrarTransacao(@Valid @RequestBody TransacoesRequestDTO transacoesRequestDTO){
         return transacoesFacade.cadastrarTransacao(transacoesRequestDTO);
     }
 
