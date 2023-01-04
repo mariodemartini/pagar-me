@@ -26,7 +26,7 @@ public class TransacoesEntity {
     @ManyToOne
     @JoinColumn(name = "pagamento_id")
     private PagamentoEntity pagamento;
-    
+
     @Override
     public String toString() {
         return "TransacoesEntity{" +
