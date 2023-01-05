@@ -19,6 +19,7 @@ public class PagamentoServiceImpl implements PagamentoService {
 
     @Override
     public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento) {
+        log.info("criando um novo pagamento: {}", metodoPagamento);
         PagamentoEntity pagamentoEntity = new PagamentoEntity();
         if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.PAID);
@@ -32,6 +33,7 @@ public class PagamentoServiceImpl implements PagamentoService {
     }
 
     public PagamentoEntity salvarPagamento(PagamentoEntity pagamentoEntity) {
+        log.info("salvando novo pagamento");
         return pagamentoRepository.save(pagamentoEntity);
     }
 }
