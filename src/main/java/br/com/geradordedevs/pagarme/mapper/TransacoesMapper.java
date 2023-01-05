@@ -4,6 +4,7 @@ import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,19 +15,23 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class TransacoesMapper {
     @Autowired
     private final ModelMapper mapper;
 
     public TransacoesResponseDTO paraDTO(TransacoesEntity transacoes){
+        log.info("convertendo entidade para DTO: {}", transacoes);
         return mapper.map(transacoes, TransacoesResponseDTO.class);
     }
 
     public TransacoesEntity paraEntidade(TransacoesRequestDTO requestDTO){
+        log.info("convertendo DTO para entidade: {}", requestDTO);
         return mapper.map(requestDTO, TransacoesEntity.class);
     }
 
     public List<TransacoesResponseDTO> paraListaDTO(Iterable<TransacoesEntity> lista){
+        log.info("convertendo lista entidade para lista DTO: {}", lista);
         List<TransacoesEntity> resultado = new ArrayList<>();
         lista.forEach(resultado::add);
         return resultado.stream()
