@@ -35,7 +35,7 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
 
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
-        if (requestDTO == null){
+        if (requestDTO.getMetodoPagamento() == null){
             throw new TransacoesException(TransacoesEnum.TRANSACAO_INVALIDA);
         }
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
