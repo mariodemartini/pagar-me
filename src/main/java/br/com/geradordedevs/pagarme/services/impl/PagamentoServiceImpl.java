@@ -3,6 +3,8 @@ package br.com.geradordedevs.pagarme.services.impl;
 import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
+import br.com.geradordedevs.pagarme.exceptions.PagamentoException;
+import br.com.geradordedevs.pagarme.exceptions.enums.PagamentoEnum;
 import br.com.geradordedevs.pagarme.repositories.PagamentoRepository;
 import br.com.geradordedevs.pagarme.services.PagamentoService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,10 +26,12 @@ public class PagamentoServiceImpl implements PagamentoService {
         if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.PAID);
             pagamentoEntity.setDataPagamento(LocalDate.now());
-        }
-        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
+        } else if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
             pagamentoEntity.setDataPagamento(LocalDate.now().plusDays(30));
+        } else {
+            log.info("pagamento diferente das opções");
+            throw new PagamentoException(PagamentoEnum.PAGAMENTO_INVALIDO);
         }
         return salvarPagamento(pagamentoEntity);
     }
