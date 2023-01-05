@@ -35,9 +35,6 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
 
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
-        if (requestDTO.getMetodoPagamento() == null){
-            throw new TransacoesException(TransacoesEnum.TRANSACAO_INVALIDA);
-        }
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
         requestDTO.setPagamento(pagamentoService.criarPagamento(requestDTO.getMetodoPagamento()));
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));

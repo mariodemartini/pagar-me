@@ -23,15 +23,17 @@ public class PagamentoServiceImpl implements PagamentoService {
     public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento) {
         log.info("criando um novo pagamento: {}", metodoPagamento);
         PagamentoEntity pagamentoEntity = new PagamentoEntity();
+        if (metodoPagamento == null) {
+            log.info("pagamento diferente das opções");
+            throw new PagamentoException(PagamentoEnum.PAGAMENTO_INVALIDO);
+        }
         if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.PAID);
             pagamentoEntity.setDataPagamento(LocalDate.now());
-        } else if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
+        }
+        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
             pagamentoEntity.setDataPagamento(LocalDate.now().plusDays(30));
-        } else {
-            log.info("pagamento diferente das opções");
-            throw new PagamentoException(PagamentoEnum.PAGAMENTO_INVALIDO);
         }
         return salvarPagamento(pagamentoEntity);
     }
