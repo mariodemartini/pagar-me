@@ -1,9 +1,7 @@
 package br.com.geradordedevs.pagarme.dtos.requests;
 
-import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,22 +15,23 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransacoesRequestDTO {
-    @NotNull
+    @NotNull(message = "campo obrigatorio")
     private BigDecimal valorTransacao;
-    @NotBlank
+    @NotBlank(message = "campo obrigatorio")
     private String descricaoTransacao;
-    @NotNull
+    @NotNull(message = "campo obrigatorio")
     private MetodoPagamentoEnum metodoPagamento;
-    @NotBlank
+    @NotBlank(message = "campo obrigatorio")
     @Size(min = 19, max = 19, message = "numero do cartao invalido")
     private String numeroCartao;
-    @NotBlank
+    @NotBlank(message = "campo obrigatorio")
     private String nomePortador;
-    @NotNull
+    @NotNull(message = "campo obrigatorio")
     private String validadeCartao;
+    @NotBlank(message = "campo obrigatorio")
     @Size(min = 3, max = 3, message = "codigo de segurança invalido")
     private String cvv;
-    @JsonIgnore
+
     private PagamentoEntity pagamento;
 
     @Override
