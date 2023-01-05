@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 @Builder
 @EqualsAndHashCode(callSuper = false)
 public class TransacoesException extends PagarmeException{
+    private static final long serialVersionUID = -4589179341768493322L;
     private final TransacoesEnum error;
 
     public TransacoesException(TransacoesEnum error){
