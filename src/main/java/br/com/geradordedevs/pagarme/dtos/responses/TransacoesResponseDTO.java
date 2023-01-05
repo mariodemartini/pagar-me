@@ -20,5 +20,5 @@ public class TransacoesResponseDTO {
     private String nomePortador;
     private String validadeCartao;
     private String cvv;
-    private PagamentoEntity pagamento;
+    private PagamentoResponseDTO pagamento;
 }
