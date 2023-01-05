@@ -1,7 +1,9 @@
 package br.com.geradordedevs.pagarme.dtos.requests;
 
+import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +24,7 @@ public class TransacoesRequestDTO {
     @NotNull
     private MetodoPagamentoEnum metodoPagamento;
     @NotBlank
-    @Size(min = 16, max = 16, message = "numero do cartao invalido")
+    @Size(min = 19, max = 19, message = "numero do cartao invalido")
     private String numeroCartao;
     @NotBlank
     private String nomePortador;
@@ -30,8 +32,8 @@ public class TransacoesRequestDTO {
     private String validadeCartao;
     @Size(min = 3, max = 3, message = "codigo de segurança invalido")
     private String cvv;
-    @NotNull
-    private Long pagamento;
+    @JsonIgnore
+    private PagamentoEntity pagamento;
 
     @Override
     public String toString() {
