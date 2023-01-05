@@ -18,9 +18,6 @@ public class PagamentoFacadeImpl implements PagamentoFacade {
 
     @Override
     public PagamentoResponseDTO criarPagamento(MetodoPagamentoEnum metodoPagamento) {
-        if(metodoPagamento != MetodoPagamentoEnum.CREDIT_CARD || metodoPagamento != MetodoPagamentoEnum.DEBIT_CARD){
-            throw new PagamentoException(PagamentoEnum.PAGAMENTO_INVALIDO);
-        }
         return pagamentoMapper.paraDTO(pagamentoService.criarPagamento(metodoPagamento));
     }
 }
