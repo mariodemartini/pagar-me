@@ -2,13 +2,15 @@ package br.com.geradordedevs.pagarme.facades.impl;
 
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
-import br.com.geradordedevs.pagarme.exceptions.PagamentoException;
-import br.com.geradordedevs.pagarme.exceptions.enums.PagamentoEnum;
 import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
 import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
 import br.com.geradordedevs.pagarme.services.PagamentoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+@Slf4j
 public class PagamentoFacadeImpl implements PagamentoFacade {
     @Autowired
     private PagamentoService pagamentoService;
