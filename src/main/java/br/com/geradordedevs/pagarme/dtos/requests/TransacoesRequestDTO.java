@@ -33,7 +33,7 @@ public class TransacoesRequestDTO {
     @NotBlank(message = "campo obrigatorio")
     @Size(min = 3, max = 3, message = "codigo de segurança invalido")
     private String cvv;
-    @NotNull
+
     private PagamentoEntity pagamento;
 
     @Override
