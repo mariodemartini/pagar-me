@@ -1,34 +1,36 @@
 package br.com.geradordedevs.pagarme.controllers;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
+import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
+import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
 import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Locale;
+import java.time.LocalDateTime;
 
+import static org.powermock.api.mockito.PowerMockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(TransacoesController.class)
 @AutoConfigureMockMvc
-@TestPropertySource(properties = "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration")
 public class TransacoesControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -39,16 +41,27 @@ public class TransacoesControllerTest {
     private final String ROTA_TRANSACOES = "/transacoes";
     private final String ROTA_TRANSACOES_COM_PARAMETRO = "/transacoes/1";
     private final String ROTA_SALDO = "/transacoes/saldo";
+
+    private final Long ID_TRANSACAO = 1L;
     private final BigDecimal VALOR = BigDecimal.valueOf(500.00);
     private final String DESCRICAO = "Vinho";
-    private final MetodoPagamentoEnum METODO_PAGAMENTO = MetodoPagamentoEnum.CREDIT_CARD;
+    private final MetodoPagamentoEnum PAGAMENTO_CREDITO = MetodoPagamentoEnum.CREDIT_CARD;
+    private final MetodoPagamentoEnum PAGAMENTO_DEBITO = MetodoPagamentoEnum.DEBIT_CARD;
     private final String NUMERO_CARTAO = "1111.1111.1111.1111";
     private final String NOME_PORTADOR = "JOSE SILVA";
     private final String VALIDADE_CARTAO = "10/23";
     private final String CVV = "123";
-    private final Long ID_PAGTO = 1L;
-    private final StatusPagamentoEnum STATUS = StatusPagamentoEnum.PAID;
-    private final LocalDate DATA_PAGAMENTO = LocalDate.now();
+    private final Long ID_PGTO = 1L;
+    private final StatusPagamentoEnum STATUS_PAGO = StatusPagamentoEnum.PAID;
+    private final StatusPagamentoEnum STATUS_ESPERA = StatusPagamentoEnum.WAITING_FUNDS;
+    private final LocalDateTime DATA_DEBITO = LocalDateTime.now();
+    private final LocalDateTime DATA_CREDITO = LocalDateTime.now().plusDays(30);
+
+    @Before
+    public void setupMock(){
+        MockitoAnnotations.openMocks(this);
+        when(transacoesFacade.cadastrarTransacao(cadastroDeTransacoesCompletoRequestDTODebito())).thenReturn(cadastroDeTransacoesCompletoResponseDTO());
+    }
 
     @Test
     public void listarTransacoesDeveRetornarOK() throws Exception{
@@ -85,17 +98,25 @@ public class TransacoesControllerTest {
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         mockMvc.perform(post(ROTA_TRANSACOES)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(ow.writeValueAsString(cadastroDeTransacoesCompleto())))
+                .content(ow.writeValueAsString(cadastroDeTransacoesCompletoRequestDTODebito())))
                 .andExpect(status().isOk());
     }
 
-    private TransacoesRequestDTO cadastroDeTransacoesCompleto() {
-        return new TransacoesRequestDTO(VALOR, DESCRICAO, METODO_PAGAMENTO, NUMERO_CARTAO, NOME_PORTADOR,
-                VALIDADE_CARTAO, CVV, retornaPagamento());
+    private TransacoesRequestDTO cadastroDeTransacoesCompletoRequestDTODebito() {
+        return new TransacoesRequestDTO(VALOR, DESCRICAO, PAGAMENTO_DEBITO, NUMERO_CARTAO, NOME_PORTADOR,
+                VALIDADE_CARTAO, CVV, retornaPagamentoEntityDebito());
     }
 
-    private PagamentoEntity retornaPagamento() {
-        return new PagamentoEntity(ID_PAGTO, STATUS.PAID, DATA_PAGAMENTO);
+    private PagamentoEntity retornaPagamentoEntityDebito() {
+        return new PagamentoEntity(ID_PGTO, STATUS_PAGO, DATA_DEBITO);
     }
 
+    private TransacoesResponseDTO cadastroDeTransacoesCompletoResponseDTO() {
+        return new TransacoesResponseDTO(ID_TRANSACAO, VALOR, DESCRICAO, PAGAMENTO_DEBITO, NUMERO_CARTAO, NOME_PORTADOR,
+                VALIDADE_CARTAO, CVV, retornaPagamentoDTODebito());
+    }
+
+    private PagamentoResponseDTO retornaPagamentoDTODebito() {
+        return new PagamentoResponseDTO(STATUS_PAGO, DATA_DEBITO);
+    }
 }
