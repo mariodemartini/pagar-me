@@ -104,7 +104,7 @@ public class TransacoesControllerTest {
 
     private TransacoesRequestDTO cadastroDeTransacoesCompletoRequestDTODebito() {
         return new TransacoesRequestDTO(VALOR, DESCRICAO, PAGAMENTO_DEBITO, NUMERO_CARTAO, NOME_PORTADOR,
-                VALIDADE_CARTAO, CVV, retornaPagamentoEntityDebito());
+                VALIDADE_CARTAO, CVV, retornaPagamentoDTODebito());
     }
 
     private PagamentoEntity retornaPagamentoEntityDebito() {

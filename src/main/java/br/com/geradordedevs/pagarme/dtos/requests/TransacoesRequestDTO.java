@@ -34,7 +34,7 @@ public class TransacoesRequestDTO {
     @Size(min = 3, max = 3, message = "codigo de segurança invalido")
     private String cvv;
 
-    private PagamentoEntity pagamento;
+    private PagamentoResponseDTO pagamento;
 
     @Override
     public String toString() {
