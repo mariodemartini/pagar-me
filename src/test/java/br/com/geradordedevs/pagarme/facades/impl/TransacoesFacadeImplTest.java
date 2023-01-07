@@ -21,6 +21,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class TransacoesFacadeImplTest {
     public void setupMock(){
         MockitoAnnotations.openMocks(this);
         when(transacoesService.listarTransacoes()).thenReturn(retornaListaDeTransacoesEntity());
-        when(transacoesService.cadastrarTransacao(retornaObjetoTransacoesRequestDTO())).thenReturn((retornaObjetoTransacoesResponseDTO()));
+        when(transacoesService.cadastrarTransacao(retornaObjetoTransacoesEntity())).thenReturn((retornaObjetoTransacoesEntity()));
 
         when(mapper.paraListaDTO(retornaListaDeTransacoesEntity())).thenReturn(retornaListaDeTransacoesResponseDTO());
         when(mapper.paraDTO(retornaObjetoTransacoesEntity())).thenReturn(retornaObjetoTransacoesResponseDTO());

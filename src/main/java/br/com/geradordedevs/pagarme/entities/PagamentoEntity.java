@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Data
@@ -21,9 +21,9 @@ public class PagamentoEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private StatusPagamentoEnum status;
-    private LocalDateTime dataPagamento;
+    private LocalDate dataPagamento;
 
-    public PagamentoEntity(LocalDateTime dataPagamento) {
+    public PagamentoEntity(LocalDate dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
 

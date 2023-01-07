@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Service
@@ -29,11 +30,11 @@ public class PagamentoServiceImpl implements PagamentoService {
         }
         if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.PAID);
-            pagamentoEntity.setDataPagamento(LocalDateTime.now());
+            pagamentoEntity.setDataPagamento(LocalDate.now());
         }
         if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
             pagamentoEntity.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
-            pagamentoEntity.setDataPagamento(LocalDateTime.now().plusDays(30));
+            pagamentoEntity.setDataPagamento(LocalDate.now().plusDays(30));
         }
         return salvarPagamento(pagamentoEntity);
     }

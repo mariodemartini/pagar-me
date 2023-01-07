@@ -22,6 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.powermock.api.mockito.PowerMockito.when;
@@ -34,7 +35,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TransacoesControllerTest {
     @Autowired
     private MockMvc mockMvc;
-
     @MockBean
     private TransacoesFacade transacoesFacade;
 
@@ -57,6 +57,8 @@ public class TransacoesControllerTest {
     private final LocalDateTime DATA_DEBITO = LocalDateTime.now();
     private final LocalDateTime DATA_CREDITO = LocalDateTime.now().plusDays(30);
 
+    @MockBean
+    private ObjectMapper objectMapper;
     @Before
     public void setupMock(){
         MockitoAnnotations.openMocks(this);
