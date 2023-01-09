@@ -1,7 +1,9 @@
 package br.com.geradordedevs.pagarme.facades.impl;
 
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
+import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
+import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
 import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
@@ -26,12 +28,12 @@ public class PagamentoFacadeImpl implements PagamentoFacade {
         PagamentoEntity pagamento = new PagamentoEntity();
         if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
             log.info("cadastrando pagamento de CREDITO");
-            pagamento.setDataPagamento(LocalDate.now());
+            pagamento.setDataPagamento(LocalDate.now().plusDays(30));
             pagamento.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
         }
         if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
             log.info("cadastrando pagamento de DEBITO");
-            pagamento.setDataPagamento(LocalDate.now().plusDays(30));
+            pagamento.setDataPagamento(LocalDate.now());
             pagamento.setStatus(StatusPagamentoEnum.PAID);
         }
         return mapper.paraDTO(pagamentoService.salvarPagamento(pagamento));
