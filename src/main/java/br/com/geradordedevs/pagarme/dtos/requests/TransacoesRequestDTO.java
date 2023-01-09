@@ -1,9 +1,7 @@
 package br.com.geradordedevs.pagarme.dtos.requests;
 
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
-import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +31,7 @@ public class TransacoesRequestDTO {
     @NotBlank(message = "campo obrigatorio")
     @Size(min = 3, max = 3, message = "codigo de segurança invalido")
     private String cvv;
+    @NotNull(message = "campo obrigatorio")
     private PagamentoResponseDTO pagamento;
 
     @Override
