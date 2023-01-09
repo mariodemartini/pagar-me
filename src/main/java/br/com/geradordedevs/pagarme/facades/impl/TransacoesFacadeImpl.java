@@ -5,9 +5,10 @@ import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
-import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
 import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
+import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
+import br.com.geradordedevs.pagarme.services.PagamentoService;
 import br.com.geradordedevs.pagarme.services.TransacoesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,11 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Autowired
     private TransacoesService transacoesService;
     @Autowired
-    private PagamentoFacade pagamentoFacade;
+    private PagamentoService pagamentoService;
     @Autowired
     private TransacoesMapper mapper;
+    @Autowired
+    private PagamentoMapper pagamentoMapper;
 
     @Override
     public List<TransacoesResponseDTO> listaTransacoes() {
@@ -34,6 +37,9 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
+
+        requestDTO.setPagamento(pagamentoMapper.paraDTO(pagamentoService.criarPagamento(requestDTO.getMetodoPagamento())));
+
         if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
 
             BigDecimal valorTaxa = requestDTO.getValorTransacao().multiply(new BigDecimal("0.05"));
@@ -47,7 +53,7 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
             requestDTO.setValorTransacao(valorLiquido);
             log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
         }
-        requestDTO.setPagamento(pagamentoFacade.criarPagamento(requestDTO.getMetodoPagamento()));
+
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
     }
 
