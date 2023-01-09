@@ -33,7 +33,7 @@ public class PagamentoFacadeImplTest {
 
     private static final Long MOCK_ID = 1L;
     private static final StatusPagamentoEnum MOCK_STATUS = StatusPagamentoEnum.PAID;
-    private static final LocalDateTime MOCK_DATA = LocalDateTime.now();
+    private static final LocalDate MOCK_DATA = LocalDate.now();
     private static final MetodoPagamentoEnum MOCK_METODO_PGTO = MetodoPagamentoEnum.DEBIT_CARD;
 
     @Before

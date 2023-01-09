@@ -55,8 +55,8 @@ public class TransacoesFacadeImplTest {
     private final Long ID_PGTO = 1L;
     private final StatusPagamentoEnum STATUS_PAGO = StatusPagamentoEnum.PAID;
     private final StatusPagamentoEnum STATUS_ESPERA = StatusPagamentoEnum.WAITING_FUNDS;
-    private final LocalDateTime DATA_DEBITO = LocalDateTime.now();
-    private final LocalDateTime DATA_CREDITO = LocalDateTime.now().plusDays(30);
+    private final LocalDate DATA_DEBITO = LocalDate.now();
+    private final LocalDate DATA_CREDITO = LocalDate.now().plusDays(30);
 
 
     @Before
