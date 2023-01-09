@@ -20,24 +20,24 @@ public class PagamentoServiceImpl implements PagamentoService {
     @Autowired
     private PagamentoRepository pagamentoRepository;
 
-    @Override
-    public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento) {
-        log.info("criando um novo pagamento: {}", metodoPagamento);
-        PagamentoEntity pagamentoEntity = new PagamentoEntity();
-        if (metodoPagamento == null) {
-            log.info("pagamento diferente das opções");
-            throw new PagamentoException(PagamentoEnum.PAGAMENTO_INVALIDO);
-        }
-        if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
-            pagamentoEntity.setStatus(StatusPagamentoEnum.PAID);
-            pagamentoEntity.setDataPagamento(LocalDate.now());
-        }
-        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
-            pagamentoEntity.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
-            pagamentoEntity.setDataPagamento(LocalDate.now().plusDays(30));
-        }
-        return salvarPagamento(pagamentoEntity);
-    }
+//    @Override
+//    public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento) {
+//        log.info("criando um novo pagamento: {}", metodoPagamento);
+//        PagamentoEntity pagamentoEntity = new PagamentoEntity();
+//        if (metodoPagamento == null) {
+//            log.info("pagamento diferente das opções");
+//            throw new PagamentoException(PagamentoEnum.PAGAMENTO_INVALIDO);
+//        }
+//        if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
+//            pagamentoEntity.setStatus(StatusPagamentoEnum.PAID);
+//            pagamentoEntity.setDataPagamento(LocalDate.now());
+//        }
+//        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
+//            pagamentoEntity.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
+//            pagamentoEntity.setDataPagamento(LocalDate.now().plusDays(30));
+//        }
+//        return salvarPagamento(pagamentoEntity);
+//    }
 
     public PagamentoEntity salvarPagamento(PagamentoEntity pagamentoEntity) {
         log.info("salvando novo pagamento");

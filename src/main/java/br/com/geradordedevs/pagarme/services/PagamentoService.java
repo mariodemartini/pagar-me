@@ -5,7 +5,7 @@ import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 
 public interface PagamentoService {
 
-    PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento);
+//    PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento);
     PagamentoEntity salvarPagamento(PagamentoEntity pagamentoEntity);
 
 }

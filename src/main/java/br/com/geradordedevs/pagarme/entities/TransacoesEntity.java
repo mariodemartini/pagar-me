@@ -24,7 +24,6 @@ public class TransacoesEntity {
     private String validadeCartao;
     private String cvv;
     @ManyToOne
-    @JoinColumn(name = "pagamento_id")
     private PagamentoEntity pagamento;
 
     @Override

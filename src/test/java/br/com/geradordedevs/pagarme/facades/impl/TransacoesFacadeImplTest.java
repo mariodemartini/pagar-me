@@ -75,7 +75,7 @@ public class TransacoesFacadeImplTest {
 
     @Test
     public void listarTransacoesDeveRetornarOk() throws Exception{
-
+        assertEquals(retornaListaDeTransacoesResponseDTO(), transacoesService.listarTransacoes());
     }
 
     @Test

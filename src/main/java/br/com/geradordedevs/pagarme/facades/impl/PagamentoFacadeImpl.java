@@ -1,6 +1,7 @@
 package br.com.geradordedevs.pagarme.facades.impl;
 
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
 import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
@@ -20,6 +21,13 @@ public class PagamentoFacadeImpl implements PagamentoFacade {
 
     @Override
     public PagamentoResponseDTO criarPagamento(MetodoPagamentoEnum metodoPagamento) {
-        return pagamentoMapper.paraDTO(pagamentoService.criarPagamento(metodoPagamento));
+        PagamentoEntity pagamento = new PagamentoEntity();
+        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
+            pagamentoService.salvarPagamento(pagamento);
+        }
+        if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
+            pagamentoService.salvarPagamento(pagamento);
+        }
+        return pagamentoMapper.paraDTO(pagamento);
     }
 }

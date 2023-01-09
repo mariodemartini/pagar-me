@@ -43,6 +43,12 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
         requestDTO.setPagamento(pagamentoFacade.criarPagamento(requestDTO.getMetodoPagamento()));
+        if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
+            requestDTO.setValorTransacao(requestDTO.getValorTransacao().multiply(new BigDecimal("0.05")));
+        }
+        if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
+            requestDTO.setValorTransacao(requestDTO.getValorTransacao().multiply(new BigDecimal("0.03")));
+        }
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
     }
 
@@ -57,14 +63,10 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
         log.info("consultando saldo");
         for (TransacoesEntity transacoesEntity : transacoesService.listarTransacoes()) {
             if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
-                BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.03")));
-                BigDecimal valorTaxado = transacoesEntity.getValorTransacao().subtract(taxa);
-                saldoDebito = saldoDebito.add(valorTaxado);
+                saldoDebito = saldoDebito.add(transacoesEntity.getValorTransacao());
             }
             if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
-                BigDecimal taxa = (transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.05")));
-                BigDecimal valorTaxado = transacoesEntity.getValorTransacao().subtract(taxa);
-                saldoCredito = saldoCredito.add(valorTaxado);
+                saldoCredito = saldoCredito.add(transacoesEntity.getValorTransacao());
             }
         }
         SaldoResponseDTO saldoResponseDTO = new SaldoResponseDTO();
