@@ -35,11 +35,16 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
         if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
-            requestDTO.setValorTransacao(requestDTO.getValorTransacao().multiply(new BigDecimal("0.05")));
+
+            BigDecimal valorTaxa = requestDTO.getValorTransacao().multiply(new BigDecimal("0.05"));
+            BigDecimal valorLiquido = requestDTO.getValorTransacao().subtract(valorTaxa);
+            requestDTO.setValorTransacao(valorLiquido);
             log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
         }
         if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
-            requestDTO.setValorTransacao(requestDTO.getValorTransacao().multiply(new BigDecimal("0.03")));
+            BigDecimal valorTaxa = requestDTO.getValorTransacao().multiply(new BigDecimal("0.03"));
+            BigDecimal valorLiquido = requestDTO.getValorTransacao().subtract(valorTaxa);
+            requestDTO.setValorTransacao(valorLiquido);
             log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
         }
         requestDTO.setPagamento(pagamentoFacade.criarPagamento(requestDTO.getMetodoPagamento()));
