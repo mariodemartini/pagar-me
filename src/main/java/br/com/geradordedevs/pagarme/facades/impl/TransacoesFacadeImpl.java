@@ -4,8 +4,10 @@ import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
+import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
 import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
 import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
@@ -25,11 +27,9 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Autowired
     private TransacoesService transacoesService;
     @Autowired
-    private PagamentoService pagamentoService;
+    private PagamentoFacade pagamentoFacade;
     @Autowired
     private TransacoesMapper mapper;
-    @Autowired
-    private PagamentoMapper pagamentoMapper;
 
     @Override
     public List<TransacoesResponseDTO> listaTransacoes() {
@@ -39,11 +39,6 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
-        log.info("descobrindo metodo de pagamento: {}", requestDTO.getMetodoPagamento());
-        MetodoPagamentoEnum metodo = requestDTO.getMetodoPagamento();
-        PagamentoResponseDTO pagamento = pagamentoMapper.paraDTO(pagamentoService.criarPagamento(metodo));
-        log.info("descobrindo status de pagamento: {}", pagamento);
-        requestDTO.setPagamento(pagamento);
         if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
             requestDTO.setValorTransacao(requestDTO.getValorTransacao().multiply(new BigDecimal("0.05")));
             log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
@@ -52,6 +47,7 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
             requestDTO.setValorTransacao(requestDTO.getValorTransacao().multiply(new BigDecimal("0.03")));
             log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
         }
+        requestDTO.setPagamento(pagamentoFacade.criarPagamento(requestDTO.getMetodoPagamento()));
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
     }
 
