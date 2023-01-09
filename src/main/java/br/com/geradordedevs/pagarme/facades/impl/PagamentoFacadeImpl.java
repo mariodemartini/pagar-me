@@ -34,6 +34,6 @@ public class PagamentoFacadeImpl implements PagamentoFacade {
             pagamento.setDataPagamento(LocalDate.now().plusDays(30));
             pagamento.setStatus(StatusPagamentoEnum.PAID);
         }
-        return mapper.paraDTO(pagamento);
+        return mapper.paraDTO(pagamentoService.salvarPagamento(pagamento));
     }
 }
