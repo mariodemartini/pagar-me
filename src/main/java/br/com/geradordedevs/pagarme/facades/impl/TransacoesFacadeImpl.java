@@ -1,23 +1,18 @@
 package br.com.geradordedevs.pagarme.facades.impl;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
-import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.SaldoResponseDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
-import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
 import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
-import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
-import br.com.geradordedevs.pagarme.services.PagamentoService;
 import br.com.geradordedevs.pagarme.services.TransacoesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
