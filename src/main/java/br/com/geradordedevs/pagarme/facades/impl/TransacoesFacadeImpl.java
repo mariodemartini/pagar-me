@@ -9,6 +9,7 @@ import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.exceptions.TransacoesException;
 import br.com.geradordedevs.pagarme.exceptions.enums.TransacoesEnum;
+import br.com.geradordedevs.pagarme.facades.PagamentoFacade;
 import br.com.geradordedevs.pagarme.facades.TransacoesFacade;
 import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
 import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
@@ -27,7 +28,7 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Autowired
     private TransacoesService transacoesService;
     @Autowired
-    private PagamentoService pagamentoService;
+    private PagamentoFacade pagamentoFacade;
     @Autowired
     private TransacoesMapper mapper;
     @Autowired
@@ -41,8 +42,7 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
-        PagamentoEntity pagamento = pagamentoService.criarPagamento(requestDTO.getMetodoPagamento());
-        requestDTO.setPagamento(pagamento);
+        requestDTO.setPagamento(pagamentoFacade.criarPagamento(requestDTO.getMetodoPagamento()));
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
     }
 
