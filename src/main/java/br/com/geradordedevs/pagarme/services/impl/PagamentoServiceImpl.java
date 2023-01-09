@@ -22,18 +22,9 @@ public class PagamentoServiceImpl implements PagamentoService {
     private PagamentoRepository pagamentoRepository;
 
     @Override
-    public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento) {
-        PagamentoEntity pagamento = new PagamentoEntity();
-        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
-            pagamento.setDataPagamento(LocalDate.now());
-            pagamento.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
-        }
-        if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){
-            pagamento.setDataPagamento(LocalDate.now().plusDays(30));
-            pagamento.setStatus(StatusPagamentoEnum.PAID);
-        }
-        log.info("salvando pagamento tipo: {}", metodoPagamento);
-        return pagamentoRepository.save(pagamento);
+    public PagamentoEntity salvarPagamento(PagamentoEntity pagamentoEntity) {
+        log.info("salvando pagamento tipo: {}", pagamentoEntity);
+        return pagamentoRepository.save(pagamentoEntity);
     }
-    
+
 }
