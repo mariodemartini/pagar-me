@@ -37,23 +37,6 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     @Override
     public TransacoesResponseDTO cadastrarTransacao(TransacoesRequestDTO requestDTO) {
         requestDTO.setNumeroCartao(escondeNumeroCartao(requestDTO.getNumeroCartao()));
-
-        requestDTO.setPagamento(pagamentoMapper.paraDTO(pagamentoService.criarPagamento(requestDTO.getMetodoPagamento())));
-
-        if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
-
-            BigDecimal valorTaxa = requestDTO.getValorTransacao().multiply(new BigDecimal("0.05"));
-            BigDecimal valorLiquido = requestDTO.getValorTransacao().subtract(valorTaxa);
-            requestDTO.setValorTransacao(valorLiquido);
-            log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
-        }
-        if (requestDTO.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
-            BigDecimal valorTaxa = requestDTO.getValorTransacao().multiply(new BigDecimal("0.03"));
-            BigDecimal valorLiquido = requestDTO.getValorTransacao().subtract(valorTaxa);
-            requestDTO.setValorTransacao(valorLiquido);
-            log.info("descobrindo valor transacao: {}", requestDTO.getValorTransacao());
-        }
-
         return mapper.paraDTO(transacoesService.cadastrarTransacao(mapper.paraEntidade(requestDTO)));
     }
 
@@ -68,10 +51,13 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
         log.info("consultando saldo");
         for (TransacoesEntity transacoesEntity : transacoesService.listarTransacoes()) {
             if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
-                saldoDebito = saldoDebito.add(transacoesEntity.getValorTransacao());
-            }
-            if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.CREDIT_CARD){
-                saldoCredito = saldoCredito.add(transacoesEntity.getValorTransacao());
+                BigDecimal valorTaxa = transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.03"));
+                BigDecimal valorLiquido = transacoesEntity.getValorTransacao().subtract(valorTaxa);
+                saldoDebito = saldoDebito.add(valorLiquido);
+            } else {
+                BigDecimal valorTaxa = transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.05"));
+                BigDecimal valorLiquido = transacoesEntity.getValorTransacao().subtract(valorTaxa);
+                saldoCredito = saldoCredito.add(valorLiquido);
             }
         }
         SaldoResponseDTO saldoResponseDTO = new SaldoResponseDTO();
