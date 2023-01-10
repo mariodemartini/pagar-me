@@ -2,7 +2,9 @@ package br.com.geradordedevs.pagarme.mapper;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
+import br.com.geradordedevs.pagarme.services.PagamentoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -20,6 +22,9 @@ public class TransacoesMapper {
     @Autowired
     private final ModelMapper mapper;
 
+    @Autowired
+    private PagamentoService pagamentoService;
+
     public TransacoesResponseDTO paraDTO(TransacoesEntity transacoes){
         log.info("convertendo entidade para DTO: {}", transacoes);
         return mapper.map(transacoes, TransacoesResponseDTO.class);
@@ -27,7 +32,10 @@ public class TransacoesMapper {
 
     public TransacoesEntity paraEntidade(TransacoesRequestDTO requestDTO){
         log.info("convertendo DTO para entidade: {}", requestDTO);
-        return mapper.map(requestDTO, TransacoesEntity.class);
+        TransacoesEntity transacoesEntity = mapper.map(requestDTO, TransacoesEntity.class);
+        PagamentoEntity pagamentoEntity = pagamentoService.criarPagamento(transacoesEntity.getMetodoPagamento());
+        transacoesEntity.setPagamento(pagamentoEntity);
+        return transacoesEntity;
     }
 
     public List<TransacoesResponseDTO> paraListaDTO(Iterable<TransacoesEntity> lista){
