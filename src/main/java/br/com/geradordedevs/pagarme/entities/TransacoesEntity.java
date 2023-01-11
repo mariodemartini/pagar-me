@@ -26,6 +26,17 @@ public class TransacoesEntity {
     @ManyToOne
     private PagamentoEntity pagamento;
 
+    public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {
+        this.valorTransacao = valorTransacao;
+        this.descricaoTransacao = descricaoTransacao;
+        this.metodoPagamento = metodoPagamento;
+        this.numeroCartao = numeroCartao;
+        this.nomePortador = nomePortador;
+        this.validadeCartao = validadeCartao;
+        this.cvv = cvv;
+        this.pagamento = pagamento;
+    }
+
     @Override
     public String toString() {
         return "TransacoesEntity{" +
