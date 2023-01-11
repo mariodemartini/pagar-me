@@ -27,4 +27,8 @@ public class PagamentoEntity {
         this.dataPagamento = dataPagamento;
     }
 
+    public PagamentoEntity(StatusPagamentoEnum status, LocalDate dataPagamento) {
+        this.status = status;
+        this.dataPagamento = dataPagamento;
+    }
 }
