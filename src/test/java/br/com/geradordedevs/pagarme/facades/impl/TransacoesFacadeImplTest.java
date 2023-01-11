@@ -22,6 +22,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class TransacoesFacadeImplTest {
     private PagamentoMapper pagamentoMapper;
 
     private static final Long ID_TRANSACAO = 1L;
-    private static final BigDecimal VALOR = BigDecimal.valueOf(100.00);
+    private static final BigDecimal VALOR = BigDecimal.valueOf(100.0);
     private static final String DESCRICAO = "Vinho";
     private static final MetodoPagamentoEnum PAGAMENTO_CREDITO = MetodoPagamentoEnum.CREDIT_CARD;
     private static final MetodoPagamentoEnum PAGAMENTO_DEBITO = MetodoPagamentoEnum.DEBIT_CARD;
@@ -57,9 +58,6 @@ public class TransacoesFacadeImplTest {
     private static final StatusPagamentoEnum STATUS_ESPERA = StatusPagamentoEnum.WAITING_FUNDS;
     private static final LocalDate DATA_DEBITO = LocalDate.now();
     private static final LocalDate DATA_CREDITO = LocalDate.now().plusDays(30);
-    private static final BigDecimal SALDO_CREDITO = new BigDecimal(95);
-    private static final BigDecimal SALDO_DEBITO = new BigDecimal(97);
-
 
     @Before
     public void setupMock(){
@@ -106,7 +104,9 @@ public class TransacoesFacadeImplTest {
 
 
     private SaldoResponseDTO retornaConsultaSaldoResponseDTO() {
-        return new SaldoResponseDTO(SALDO_DEBITO, SALDO_CREDITO);
+        BigDecimal saldoCredito = VALOR.subtract(VALOR.multiply(BigDecimal.valueOf(0.05)));
+        BigDecimal saldoDebito = VALOR.subtract(VALOR.multiply(BigDecimal.valueOf(0.03)));
+        return new SaldoResponseDTO(saldoDebito, saldoCredito);
     }
 
     private List<TransacoesResponseDTO> retornaListaDeTransacoesResponseDTO() {
