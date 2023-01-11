@@ -70,7 +70,7 @@ public class TransacoesControllerTest {
         mockMvc.perform(post(ROTA_TRANSACOES)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(ow.writeValueAsString(retornTransacoesRequestDTOCorreto())))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
     @Test
     public void cadastrarTransacaoValorNuloDeveRetornarBadRequest() throws Exception{

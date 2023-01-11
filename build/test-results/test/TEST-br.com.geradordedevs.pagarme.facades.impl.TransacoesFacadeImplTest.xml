@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-11T19:54:44" hostname="mario-Inspiron-3501" time="0.468">
-  <properties/>
-  <testcase name="consultarSaldoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.468"/>
-  <system-out><![CDATA[16:54:44.998 [Test worker] INFO br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImpl - consultando saldo
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
