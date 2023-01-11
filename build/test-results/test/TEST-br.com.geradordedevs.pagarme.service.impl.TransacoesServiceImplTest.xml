@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.geradordedevs.pagarme.service.impl.TransacoesServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-11T14:30:21" hostname="mario-Inspiron-3501" time="0.175">
+  <properties/>
+  <testcase name="removerTransacaoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.TransacoesServiceImplTest" time="0.175"/>
+  <system-out><![CDATA[11:30:21.974 [Test worker] INFO br.com.geradordedevs.pagarme.services.impl.TransacoesServiceImpl - removendo transação id 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

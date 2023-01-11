@@ -21,12 +21,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.0.0'
-	testImplementation 'org.powermock:powermock-module-junit4:2.0.2'
-	testImplementation 'org.powermock:powermock-api-mockito2:2.0.2'
+	testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.9'
+	testImplementation group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.9'
 	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.14.1'
 
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
