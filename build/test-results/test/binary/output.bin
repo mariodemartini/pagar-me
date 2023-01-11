@@ -1,1 +1,1 @@
-ƒ13:49:52.740 [Test worker] INFO br.com.geradordedevs.pagarme.services.impl.PagamentoServiceImpl - cadastrando pagamento de CREDITO
+s16:34:05.858 [Test worker] INFO br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImpl - consultando saldo

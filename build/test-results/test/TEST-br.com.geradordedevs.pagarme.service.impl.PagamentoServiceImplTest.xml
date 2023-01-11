@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-11T16:49:52" hostname="mario-Inspiron-3501" time="0.574">
-  <properties/>
-  <testcase name="criarPagamentoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" time="0.574"/>
-  <system-out><![CDATA[13:49:52.740 [Test worker] INFO br.com.geradordedevs.pagarme.services.impl.PagamentoServiceImpl - cadastrando pagamento de CREDITO
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
