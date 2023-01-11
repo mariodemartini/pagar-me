@@ -1,1 +1,1 @@
-~11:30:21.974 [Test worker] INFO br.com.geradordedevs.pagarme.services.impl.TransacoesServiceImpl - removendo transação id 1
+�13:49:52.740 [Test worker] INFO br.com.geradordedevs.pagarme.services.impl.PagamentoServiceImpl - cadastrando pagamento de CREDITO
