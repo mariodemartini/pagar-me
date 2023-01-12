@@ -1,4 +1,4 @@
-package br.com.geradordedevs.pagarme.mapper;
+package br.com.geradordedevs.pagarme.mappers;
 
 import br.com.geradordedevs.pagarme.dtos.requests.TransacoesRequestDTO;
 import br.com.geradordedevs.pagarme.dtos.responses.TransacoesResponseDTO;

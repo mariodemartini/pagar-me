@@ -1,8 +1,7 @@
-package br.com.geradordedevs.pagarme.mapper;
+package br.com.geradordedevs.pagarme.mappers;
 
 import br.com.geradordedevs.pagarme.dtos.responses.PagamentoResponseDTO;
 import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;

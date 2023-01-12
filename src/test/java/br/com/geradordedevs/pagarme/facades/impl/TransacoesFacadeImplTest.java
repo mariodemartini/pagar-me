@@ -8,8 +8,8 @@ import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.entities.TransacoesEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
-import br.com.geradordedevs.pagarme.mapper.PagamentoMapper;
-import br.com.geradordedevs.pagarme.mapper.TransacoesMapper;
+import br.com.geradordedevs.pagarme.mappers.PagamentoMapper;
+import br.com.geradordedevs.pagarme.mappers.TransacoesMapper;
 import br.com.geradordedevs.pagarme.services.PagamentoService;
 import br.com.geradordedevs.pagarme.services.TransacoesService;
 import org.junit.Before;
@@ -22,7 +22,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
