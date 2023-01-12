@@ -29,26 +29,37 @@ public class PagamentoServiceImplTest {
 
     @Mock
     private PagamentoRepository pagamentoRepository;
-
-
+    
     private static final MetodoPagamentoEnum MOCK_PGTO_CREDITO = MetodoPagamentoEnum.CREDIT_CARD;
-    private static final Long MOCK_ID_PGTO = 1L;
+    private static final MetodoPagamentoEnum MOCK_PGTO_DEBITO = MetodoPagamentoEnum.DEBIT_CARD;
     private static final StatusPagamentoEnum MOCK_STATUS_CREDITO = StatusPagamentoEnum.WAITING_FUNDS;
+    private static final StatusPagamentoEnum MOCK_STATUS_DEBITO = StatusPagamentoEnum.PAID;
     private static final LocalDate MOCK_DATA_CREDITO = LocalDate.now().plusDays(30);
+    private static final LocalDate MOCK_DATA_DEBITO = LocalDate.now();
 
     @Before
     public void setupMock(){
         MockitoAnnotations.openMocks(this);
-        when(pagamentoRepository.save(retornaObjetoPagamentoEntity())).thenReturn(retornaObjetoPagamentoEntity());
+        when(pagamentoRepository.save(retornaObjetoPagamentoEntityCredito())).thenReturn(retornaObjetoPagamentoEntityCredito());
+        when(pagamentoRepository.save(retornaObjetoPagamentoEntityDebito())).thenReturn(retornaObjetoPagamentoEntityDebito());
     }
 
     @Test
-    public void criarPagamentoDeveRetornarOk() throws Exception{
-        assertEquals(retornaObjetoPagamentoEntity(), pagamentoService.criarPagamento(MOCK_PGTO_CREDITO));
+    public void criarPagamentoCreditoDeveRetornarOk() throws Exception{
+        assertEquals(retornaObjetoPagamentoEntityCredito(), pagamentoService.criarPagamento(MOCK_PGTO_CREDITO));
     }
 
-    private PagamentoEntity retornaObjetoPagamentoEntity() {
+    @Test
+    public void criarPagamentoDebitoDeveRetornarOk() throws Exception{
+        assertEquals(retornaObjetoPagamentoEntityDebito(), pagamentoService.criarPagamento(MOCK_PGTO_DEBITO));
+    }
+
+    private PagamentoEntity retornaObjetoPagamentoEntityCredito() {
         return new PagamentoEntity(MOCK_STATUS_CREDITO, MOCK_DATA_CREDITO);
+    }
+
+    private PagamentoEntity retornaObjetoPagamentoEntityDebito() {
+        return new PagamentoEntity(MOCK_STATUS_DEBITO, MOCK_DATA_DEBITO);
     }
 
 }
