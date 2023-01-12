@@ -2,5 +2,5 @@ projectKey=pagar-me
 serverUrl=http://localhost:9000
 serverVersion=9.8.0.63668
 dashboardUrl=http://localhost:9000/dashboard?id=pagar-me
-ceTaskId=AYWmW3L4rViR7v6ffVfV
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYWmW3L4rViR7v6ffVfV
+ceTaskId=AYWmZaAorViR7v6ffViB
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYWmZaAorViR7v6ffViB

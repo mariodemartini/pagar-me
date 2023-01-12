@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApplicationExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pagar-me</a> &gt; <a href="index.source.html" class="el_package">br.com.geradordedevs.pagarme.exceptions</a> &gt; <span class="el_source">ApplicationExceptionHandler.java</span></div><h1>ApplicationExceptionHandler.java</h1><pre class="source lang-java linenums">package br.com.geradordedevs.pagarme.exceptions;
+
+import br.com.geradordedevs.pagarme.exceptions.models.ErrorObject;
+import br.com.geradordedevs.pagarme.exceptions.models.ErrorResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@ControllerAdvice
+<span class="fc" id="L22">@Slf4j</span>
+<span class="fc" id="L23">public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {</span>
+    @Override
+    protected ResponseEntity&lt;Object&gt; handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+<span class="fc" id="L26">        List&lt;ErrorObject&gt; errors = getErrors(ex);</span>
+<span class="fc" id="L27">        ErrorResponse errorResponse = getErrorResponse(status, errors);</span>
+<span class="fc" id="L28">        log.error(&quot;erro de entrada de dados: {}&quot;, errorResponse);</span>
+<span class="fc" id="L29">        return new ResponseEntity&lt;&gt;(errorResponse, status);</span>
+    }
+
+    private ErrorResponse getErrorResponse(HttpStatus status, List&lt;ErrorObject&gt; errors) {
+<span class="fc" id="L33">        return new ErrorResponse(Instant.now().toEpochMilli(),</span>
+<span class="fc" id="L34">                status.value(),</span>
+<span class="fc" id="L35">                status.getReasonPhrase(),</span>
+                &quot;Requisição possui campos inválidos&quot;,
+                errors);
+    }
+
+    private List&lt;ErrorObject&gt; getErrors(MethodArgumentNotValidException ex) {
+<span class="fc" id="L41">        return ex.getBindingResult().getFieldErrors().stream()</span>
+<span class="fc" id="L42">                .map(error -&gt; new ErrorObject(error.getDefaultMessage(), error.getField(), error.getRejectedValue()))</span>
+<span class="fc" id="L43">                .collect(Collectors.toList());</span>
+    }
+
+    @ResponseBody
+    @ExceptionHandler(PagamentoException.class)
+    ResponseEntity&lt;ErrorResponse&gt; handlerPagamentoException(PagamentoException ex) {
+<span class="nc" id="L49">        return ResponseEntity.status(ex.getError().getStatusCode())</span>
+<span class="nc" id="L50">                .body((new ErrorResponse(</span>
+<span class="nc" id="L51">                        Instant.now().toEpochMilli(),</span>
+<span class="nc" id="L52">                        ex.getError().getStatusCode(),</span>
+<span class="nc" id="L53">                        ex.getError().getCode(),</span>
+<span class="nc" id="L54">                        ex.getMessage(), new ArrayList&lt;&gt;())));</span>
+    }
+
+    @ResponseBody
+    @ExceptionHandler(TransacoesException.class)
+    ResponseEntity&lt;ErrorResponse&gt; handlerTransacoesException(TransacoesException ex) {
+<span class="nc" id="L60">        return ResponseEntity.status(ex.getError().getStatusCode())</span>
+<span class="nc" id="L61">                .body((new ErrorResponse(</span>
+<span class="nc" id="L62">                        Instant.now().toEpochMilli(),</span>
+<span class="nc" id="L63">                        ex.getError().getStatusCode(),</span>
+<span class="nc" id="L64">                        ex.getError().getCode(),</span>
+<span class="nc" id="L65">                        ex.getMessage(), new ArrayList&lt;&gt;())));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-12T14:00:40" hostname="mario-Inspiron-3501" time="0.141">
+<testsuite name="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-12T14:47:08" hostname="mario-Inspiron-3501" time="0.143">
   <properties/>
-  <testcase name="consultarSaldoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.104"/>
-  <testcase name="deletarTransacaoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.021"/>
-  <testcase name="cadastrarTransacaoCreditoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.004"/>
+  <testcase name="consultarSaldoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.121"/>
+  <testcase name="deletarTransacaoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.01"/>
+  <testcase name="cadastrarTransacaoCreditoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.003"/>
   <testcase name="cadastrarTransacaoDebitoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.004"/>
-  <testcase name="listarTransacoesDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.005"/>
-  <system-out><![CDATA[2023-01-12 11:00:40.663  INFO 13858 --- [    Test worker] b.c.g.p.f.impl.TransacoesFacadeImpl      : consultando saldo
+  <testcase name="listarTransacoesDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-12 11:47:08.814  INFO 23562 --- [    Test worker] b.c.g.p.f.impl.TransacoesFacadeImpl      : consultando saldo
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

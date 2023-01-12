@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.474s</div>
+<div class="counter">0.480s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">cadastrarTransacaoCvvMaiorDeveRetornarBadRequest</td>
-<td class="success">0.007s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">cadastrarTransacaoCvvMenorDeveRetornarBadRequest</td>
-<td class="success">0.023s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">cadastrarTransacaoCvvNuloDeveRetornarBadRequest</td>
-<td class="success">0.010s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">cadastrarTransacaoDescricaoNuloDeveRetornarBadRequest</td>
-<td class="success">0.009s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -104,42 +104,42 @@
 </tr>
 <tr>
 <td class="success">cadastrarTransacaoNomePortadorNuloDeveRetornarBadRequest</td>
-<td class="success">0.011s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">cadastrarTransacaoNumeroCartaoNuloDeveRetornarBadRequest</td>
-<td class="success">0.013s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">cadastrarTransacaoPagamentoNuloDeveRetornarBadRequest</td>
-<td class="success">0.023s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">cadastrarTransacaoValidadeCartaoNuloDeveRetornarBadRequest</td>
-<td class="success">0.018s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">cadastrarTransacaoValorNuloDeveRetornarBadRequest</td>
-<td class="success">0.302s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">consultarSaldoDeveRetornarOk</td>
 <td class="success">0.019s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">cadastrarTransacaoValidadeCartaoNuloDeveRetornarBadRequest</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">cadastrarTransacaoValorNuloDeveRetornarBadRequest</td>
+<td class="success">0.341s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">consultarSaldoDeveRetornarOk</td>
+<td class="success">0.026s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">deletarTransacaoDeveRetornarOk</td>
-<td class="success">0.015s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">listarTransacoesDeveRetornarOk</td>
-<td class="success">0.013s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -147,32 +147,32 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>11:00:37.358 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.368 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-11:00:37.378 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-11:00:37.437 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
-11:00:37.452 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest], using SpringBootContextLoader
-11:00:37.458 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: class path resource [br/com/geradordedevs/pagarme/controllers/TransacoesControllerTest-context.xml] does not exist
-11:00:37.459 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: class path resource [br/com/geradordedevs/pagarme/controllers/TransacoesControllerTestContext.groovy] does not exist
-11:00:37.459 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-11:00:37.460 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: TransacoesControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:00:37.567 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.644 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/mario/Documentos/GitHub/pagar-me/build/classes/java/main/br/com/geradordedevs/pagarme/DesafioPagarMeApplication.class]
-11:00:37.645 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration br.com.geradordedevs.pagarme.DesafioPagarMeApplication for test class br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest
-11:00:37.651 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: using defaults.
-11:00:37.652 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-11:00:37.674 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3c7c886c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@55493582, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1a20270e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6b88ca8c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@336f1079, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2f16c6b3, org.springframework.test.context.transaction.TransactionalTestExecutionListener@34158c08, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@19e4fcac, org.springframework.test.context.event.EventPublishingTestExecutionListener@52c3cb31, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4b79ac84, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@53941c2f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6dab9b6d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@21fd5faa, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2766ca9d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5460cf3a]
-11:00:37.676 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.677 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.679 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.680 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.681 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.681 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.682 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.682 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.688 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@16ce702d testClass = TransacoesControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7b94089b testClass = TransacoesControllerTest, locations = '{}', classes = '{class br.com.geradordedevs.pagarme.DesafioPagarMeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@23941fb4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1f9f6368, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@cb34518a, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ce9d751c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1169afe1, [ImportsContextCustomizer@7ca20101 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4f4c4b1a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@64e7619d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@f7e4663b, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
-11:00:37.691 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
-11:00:37.691 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+<pre>11:47:04.289 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.316 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+11:47:04.336 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+11:47:04.429 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+11:47:04.454 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest], using SpringBootContextLoader
+11:47:04.467 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: class path resource [br/com/geradordedevs/pagarme/controllers/TransacoesControllerTest-context.xml] does not exist
+11:47:04.468 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: class path resource [br/com/geradordedevs/pagarme/controllers/TransacoesControllerTestContext.groovy] does not exist
+11:47:04.468 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+11:47:04.469 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: TransacoesControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:47:04.616 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.755 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/mario/Documentos/GitHub/pagar-me/build/classes/java/main/br/com/geradordedevs/pagarme/DesafioPagarMeApplication.class]
+11:47:04.756 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration br.com.geradordedevs.pagarme.DesafioPagarMeApplication for test class br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest
+11:47:04.761 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]: using defaults.
+11:47:04.762 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+11:47:04.792 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2d9f64c9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@21ac5eb4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@52d6cd34, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@715d6168, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@27b2faa6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6428591a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7397c6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1abfe081, org.springframework.test.context.event.EventPublishingTestExecutionListener@2a685eba, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@c2e3264, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@107f4980, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@75a118e6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1d540566, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6014a9ba, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@acdcf71]
+11:47:04.796 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.797 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.799 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.799 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.800 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.801 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.802 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.802 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.810 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@37af1f93 testClass = TransacoesControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@778d82e9 testClass = TransacoesControllerTest, locations = '{}', classes = '{class br.com.geradordedevs.pagarme.DesafioPagarMeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18a645fd, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6872f9c8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@e86d07aa, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@25c28612, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@21325036, [ImportsContextCustomizer@408e96d9 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1f443fae, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@281f23f2, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@f5dec3bf, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+11:47:04.813 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
+11:47:04.813 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [br.com.geradordedevs.pagarme.controllers.TransacoesControllerTest]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -182,21 +182,21 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.7.5)
 
-2023-01-12 11:00:38.106  INFO 13858 --- [    Test worker] b.c.g.p.c.TransacoesControllerTest       : Starting TransacoesControllerTest using Java 17.0.5 on mario-Inspiron-3501 with PID 13858 (started by mario in /home/mario/Documentos/GitHub/pagar-me)
-2023-01-12 11:00:38.108  INFO 13858 --- [    Test worker] b.c.g.p.c.TransacoesControllerTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-01-12 11:00:40.001  INFO 13858 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-01-12 11:00:40.001  INFO 13858 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-12 11:00:40.003  INFO 13858 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2023-01-12 11:00:40.037  INFO 13858 --- [    Test worker] b.c.g.p.c.TransacoesControllerTest       : Started TransacoesControllerTest in 2.301 seconds (JVM running for 3.351)
-2023-01-12 11:00:40.308 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040308, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=valorTransacao, parameter=null)])
-2023-01-12 11:00:40.373 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040373, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=metodoPagamento, parameter=null)])
-2023-01-12 11:00:40.392 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040392, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=validadeCartao, parameter=null)])
-2023-01-12 11:00:40.413 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040413, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=codigo de segurança invalido, field=cvv, parameter=12)])
-2023-01-12 11:00:40.479 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040479, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=numero do cartao invalido, field=numeroCartao, parameter=), ErrorObject(message=campo obrigatorio, field=numeroCartao, parameter=)])
-2023-01-12 11:00:40.491 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040491, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=codigo de segurança invalido, field=cvv, parameter=1234)])
-2023-01-12 11:00:40.501 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040501, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=nomePortador, parameter=)])
-2023-01-12 11:00:40.529 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040529, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=codigo de segurança invalido, field=cvv, parameter=), ErrorObject(message=campo obrigatorio, field=cvv, parameter=)])
-2023-01-12 11:00:40.542 ERROR 13858 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673532040542, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=descricaoTransacao, parameter=)])
+2023-01-12 11:47:05.498  INFO 23562 --- [    Test worker] b.c.g.p.c.TransacoesControllerTest       : Starting TransacoesControllerTest using Java 18.0.2-ea on mario-Inspiron-3501 with PID 23562 (started by mario in /home/mario/Documentos/GitHub/pagar-me)
+2023-01-12 11:47:05.500  INFO 23562 --- [    Test worker] b.c.g.p.c.TransacoesControllerTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-01-12 11:47:08.137  INFO 23562 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-01-12 11:47:08.137  INFO 23562 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-12 11:47:08.139  INFO 23562 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-01-12 11:47:08.171  INFO 23562 --- [    Test worker] b.c.g.p.c.TransacoesControllerTest       : Started TransacoesControllerTest in 3.29 seconds (JVM running for 4.833)
+2023-01-12 11:47:08.482 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828482, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=valorTransacao, parameter=null)])
+2023-01-12 11:47:08.541 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828541, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=metodoPagamento, parameter=null)])
+2023-01-12 11:47:08.554 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828554, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=validadeCartao, parameter=null)])
+2023-01-12 11:47:08.568 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828568, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=codigo de segurança invalido, field=cvv, parameter=12)])
+2023-01-12 11:47:08.627 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828627, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=numero do cartao invalido, field=numeroCartao, parameter=), ErrorObject(message=campo obrigatorio, field=numeroCartao, parameter=)])
+2023-01-12 11:47:08.640 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828640, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=codigo de segurança invalido, field=cvv, parameter=1234)])
+2023-01-12 11:47:08.651 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828651, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=nomePortador, parameter=)])
+2023-01-12 11:47:08.670 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828670, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=codigo de segurança invalido, field=cvv, parameter=), ErrorObject(message=campo obrigatorio, field=cvv, parameter=)])
+2023-01-12 11:47:08.679 ERROR 23562 --- [    Test worker] b.c.g.p.e.ApplicationExceptionHandler    : erro de entrada de dados: ErrorResponse(timestamp=1673534828679, status=400, code=Bad Request, message=Requisição possui campos inválidos, erros=[ErrorObject(message=campo obrigatorio, field=descricaoTransacao, parameter=)])
 </pre>
 </span>
 </div>
@@ -208,7 +208,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 12 de jan. de 2023 11:00:40</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 12 de jan. de 2023 11:47:09</p>
 </div>
 </div>
 </body>

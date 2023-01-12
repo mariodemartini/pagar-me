@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransacoesRequestDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pagar-me</a> &gt; <a href="index.source.html" class="el_package">br.com.geradordedevs.pagarme.dtos.requests</a> &gt; <span class="el_source">TransacoesRequestDTO.java</span></div><h1>TransacoesRequestDTO.java</h1><pre class="source lang-java linenums">package br.com.geradordedevs.pagarme.dtos.requests;
+
+import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.math.BigDecimal;
+
+<span class="pc bpc" id="L13" title="44 of 62 branches missed.">@Data</span>
+<span class="fc" id="L14">@NoArgsConstructor</span>
+<span class="fc" id="L15">@AllArgsConstructor</span>
+public class TransacoesRequestDTO {
+    @NotNull(message = &quot;campo obrigatorio&quot;)
+<span class="fc" id="L18">    private BigDecimal valorTransacao;</span>
+    @NotBlank(message = &quot;campo obrigatorio&quot;)
+<span class="fc" id="L20">    private String descricaoTransacao;</span>
+    @NotNull(message = &quot;campo obrigatorio&quot;)
+<span class="fc" id="L22">    private MetodoPagamentoEnum metodoPagamento;</span>
+    @NotBlank(message = &quot;campo obrigatorio&quot;)
+    @Size(min = 19, max = 19, message = &quot;numero do cartao invalido&quot;)
+<span class="fc" id="L25">    private String numeroCartao;</span>
+    @NotBlank(message = &quot;campo obrigatorio&quot;)
+<span class="fc" id="L27">    private String nomePortador;</span>
+    @NotNull(message = &quot;campo obrigatorio&quot;)
+<span class="fc" id="L29">    private String validadeCartao;</span>
+    @NotBlank(message = &quot;campo obrigatorio&quot;)
+    @Size(min = 3, max = 3, message = &quot;codigo de segurança invalido&quot;)
+<span class="fc" id="L32">    private String cvv;</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L36">        return &quot;TransacoesRequestDTO{&quot; +</span>
+                &quot;valorTransacao=&quot; + valorTransacao +
+                &quot;, descricaoTransacao='&quot; + descricaoTransacao + '\'' +
+                &quot;, metodoPagamento=&quot; + metodoPagamento +
+                &quot;, numeroCartao='&quot; + numeroCartao + '\'' +
+                &quot;, nomePortador='&quot; + nomePortador + '\'' +
+                &quot;, validadeCartao='&quot; + validadeCartao + '\'' +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

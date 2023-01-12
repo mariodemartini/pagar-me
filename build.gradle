@@ -19,6 +19,7 @@ sonarqube {
 				"**/configurations/**," +
 						"**/dtos/**," +
 						"**/entities/**," +
+						"**/enums/**," +
 						"**/exceptions/**," +
 						"**/mapper/**," +
 						"**/repositories/** "
