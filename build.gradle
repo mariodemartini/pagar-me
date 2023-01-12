@@ -16,12 +16,13 @@ test.finalizedBy jacocoTestReport
 sonarqube {
 	properties {
 		property "sonar.coverage.exclusions",
+				"**/DesafioPagarMeApplication.java," +
 				"**/configurations/**," +
 						"**/dtos/**," +
 						"**/entities/**," +
 						"**/enums/**," +
 						"**/exceptions/**," +
-						"**/mapper/**," +
+						"**/mappers/**," +
 						"**/repositories/** "
 	}
 }

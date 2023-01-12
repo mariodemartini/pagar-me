@@ -7,17 +7,17 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-<span class="fc" id="L10">@AllArgsConstructor</span>
+<span class="nc" id="L10">@AllArgsConstructor</span>
 <span class="nc" id="L11">@NoArgsConstructor</span>
-<span class="pc bnc" id="L12" title="All 46 branches missed.">@Data</span>
+<span class="nc bnc" id="L12" title="All 46 branches missed.">@Data</span>
 public class ErrorResponse {
 
-<span class="fc" id="L15">    private Long timestamp;</span>
-<span class="fc" id="L16">    private Integer status;</span>
-<span class="fc" id="L17">    private String code;</span>
-<span class="fc" id="L18">    private String message;</span>
+<span class="nc" id="L15">    private Long timestamp;</span>
+<span class="nc" id="L16">    private Integer status;</span>
+<span class="nc" id="L17">    private String code;</span>
+<span class="nc" id="L18">    private String message;</span>
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-<span class="fc" id="L20">    private List&lt;ErrorObject&gt; erros;</span>
+<span class="nc" id="L20">    private List&lt;ErrorObject&gt; erros;</span>
 
 }
 

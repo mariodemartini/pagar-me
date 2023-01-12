@@ -19,28 +19,28 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
-<span class="fc" id="L22">@Slf4j</span>
-<span class="fc" id="L23">public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {</span>
+<span class="nc" id="L22">@Slf4j</span>
+<span class="nc" id="L23">public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {</span>
     @Override
     protected ResponseEntity&lt;Object&gt; handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-<span class="fc" id="L26">        List&lt;ErrorObject&gt; errors = getErrors(ex);</span>
-<span class="fc" id="L27">        ErrorResponse errorResponse = getErrorResponse(status, errors);</span>
-<span class="fc" id="L28">        log.error(&quot;erro de entrada de dados: {}&quot;, errorResponse);</span>
-<span class="fc" id="L29">        return new ResponseEntity&lt;&gt;(errorResponse, status);</span>
+<span class="nc" id="L26">        List&lt;ErrorObject&gt; errors = getErrors(ex);</span>
+<span class="nc" id="L27">        ErrorResponse errorResponse = getErrorResponse(status, errors);</span>
+<span class="nc" id="L28">        log.error(&quot;erro de entrada de dados: {}&quot;, errorResponse);</span>
+<span class="nc" id="L29">        return new ResponseEntity&lt;&gt;(errorResponse, status);</span>
     }
 
     private ErrorResponse getErrorResponse(HttpStatus status, List&lt;ErrorObject&gt; errors) {
-<span class="fc" id="L33">        return new ErrorResponse(Instant.now().toEpochMilli(),</span>
-<span class="fc" id="L34">                status.value(),</span>
-<span class="fc" id="L35">                status.getReasonPhrase(),</span>
+<span class="nc" id="L33">        return new ErrorResponse(Instant.now().toEpochMilli(),</span>
+<span class="nc" id="L34">                status.value(),</span>
+<span class="nc" id="L35">                status.getReasonPhrase(),</span>
                 &quot;Requisição possui campos inválidos&quot;,
                 errors);
     }
 
     private List&lt;ErrorObject&gt; getErrors(MethodArgumentNotValidException ex) {
-<span class="fc" id="L41">        return ex.getBindingResult().getFieldErrors().stream()</span>
-<span class="fc" id="L42">                .map(error -&gt; new ErrorObject(error.getDefaultMessage(), error.getField(), error.getRejectedValue()))</span>
-<span class="fc" id="L43">                .collect(Collectors.toList());</span>
+<span class="nc" id="L41">        return ex.getBindingResult().getFieldErrors().stream()</span>
+<span class="nc" id="L42">                .map(error -&gt; new ErrorObject(error.getDefaultMessage(), error.getField(), error.getRejectedValue()))</span>
+<span class="nc" id="L43">                .collect(Collectors.toList());</span>
     }
 
     @ResponseBody

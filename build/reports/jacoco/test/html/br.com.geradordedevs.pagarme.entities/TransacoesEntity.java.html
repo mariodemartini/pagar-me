@@ -9,37 +9,37 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-<span class="pc bpc" id="L12" title="54 of 78 branches missed.">@Data</span>
+<span class="nc bnc" id="L12" title="All 78 branches missed.">@Data</span>
 <span class="nc" id="L13">@NoArgsConstructor</span>
-<span class="fc" id="L14">@AllArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
 public class TransacoesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-<span class="fc" id="L18">    private Long id;</span>
-<span class="fc" id="L19">    private BigDecimal valorTransacao;</span>
-<span class="fc" id="L20">    private String descricaoTransacao;</span>
-<span class="fc" id="L21">    private MetodoPagamentoEnum metodoPagamento;</span>
-<span class="fc" id="L22">    private String numeroCartao;</span>
-<span class="fc" id="L23">    private String nomePortador;</span>
-<span class="fc" id="L24">    private String validadeCartao;</span>
-<span class="fc" id="L25">    private String cvv;</span>
-    @ManyToOne
-<span class="fc" id="L27">    private PagamentoEntity pagamento;</span>
+<span class="nc" id="L18">    private Long id;</span>
+<span class="nc" id="L19">    private BigDecimal valorTransacao;</span>
+<span class="nc" id="L20">    private String descricaoTransacao;</span>
+<span class="nc" id="L21">    private MetodoPagamentoEnum metodoPagamento;</span>
+<span class="nc" id="L22">    private String numeroCartao;</span>
+<span class="nc" id="L23">    private String nomePortador;</span>
+<span class="nc" id="L24">    private String validadeCartao;</span>
+<span class="nc" id="L25">    private String cvv;</span>
+    @OneToOne
+<span class="nc" id="L27">    private PagamentoEntity pagamento;</span>
 
-<span class="fc" id="L29">    public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {</span>
-<span class="fc" id="L30">        this.valorTransacao = valorTransacao;</span>
-<span class="fc" id="L31">        this.descricaoTransacao = descricaoTransacao;</span>
-<span class="fc" id="L32">        this.metodoPagamento = metodoPagamento;</span>
-<span class="fc" id="L33">        this.numeroCartao = numeroCartao;</span>
-<span class="fc" id="L34">        this.nomePortador = nomePortador;</span>
-<span class="fc" id="L35">        this.validadeCartao = validadeCartao;</span>
-<span class="fc" id="L36">        this.cvv = cvv;</span>
-<span class="fc" id="L37">        this.pagamento = pagamento;</span>
-<span class="fc" id="L38">    }</span>
+<span class="nc" id="L29">    public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {</span>
+<span class="nc" id="L30">        this.valorTransacao = valorTransacao;</span>
+<span class="nc" id="L31">        this.descricaoTransacao = descricaoTransacao;</span>
+<span class="nc" id="L32">        this.metodoPagamento = metodoPagamento;</span>
+<span class="nc" id="L33">        this.numeroCartao = numeroCartao;</span>
+<span class="nc" id="L34">        this.nomePortador = nomePortador;</span>
+<span class="nc" id="L35">        this.validadeCartao = validadeCartao;</span>
+<span class="nc" id="L36">        this.cvv = cvv;</span>
+<span class="nc" id="L37">        this.pagamento = pagamento;</span>
+<span class="nc" id="L38">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L42">        return &quot;TransacoesEntity{&quot; +</span>
+<span class="nc" id="L42">        return &quot;TransacoesEntity{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, valorTransacao=&quot; + valorTransacao +
                 &quot;, descricaoTransacao='&quot; + descricaoTransacao + '\'' +

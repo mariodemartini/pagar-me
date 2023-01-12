@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(&quot;/transacoes&quot;)
-<span class="fc" id="L19">public class TransacoesController {</span>
+<span class="nc" id="L19">public class TransacoesController {</span>
     @Autowired
     private TransacoesFacade transacoesFacade;
 
@@ -26,7 +26,7 @@ import java.util.List;
     })
     @GetMapping
     public ResponseEntity&lt;List&lt;TransacoesResponseDTO&gt;&gt; listarTransacoes(){
-<span class="fc" id="L29">        return new ResponseEntity&lt;&gt;(transacoesFacade.listaTransacoes(), HttpStatus.OK);</span>
+<span class="nc" id="L29">        return new ResponseEntity&lt;&gt;(transacoesFacade.listaTransacoes(), HttpStatus.OK);</span>
     }
 
     @ApiResponses(value = {
@@ -35,7 +35,7 @@ import java.util.List;
     })
     @PostMapping
     public ResponseEntity&lt;TransacoesResponseDTO&gt; cadastrarTransacao(@Valid @RequestBody TransacoesRequestDTO transacoesRequestDTO){
-<span class="fc" id="L38">        return new ResponseEntity&lt;&gt;(transacoesFacade.cadastrarTransacao(transacoesRequestDTO), HttpStatus.CREATED);</span>
+<span class="nc" id="L38">        return new ResponseEntity&lt;&gt;(transacoesFacade.cadastrarTransacao(transacoesRequestDTO), HttpStatus.CREATED);</span>
     }
 
     @ApiResponses(value = {
@@ -45,8 +45,8 @@ import java.util.List;
     })
     @DeleteMapping(&quot;/{id}&quot;)
     public void deletarTransacao(@PathVariable Long id){
-<span class="fc" id="L48">        transacoesFacade.deletarTransacao(id);</span>
-<span class="fc" id="L49">    }</span>
+<span class="nc" id="L48">        transacoesFacade.deletarTransacao(id);</span>
+<span class="nc" id="L49">    }</span>
 
 
     @ApiResponses(value = {
@@ -55,8 +55,8 @@ import java.util.List;
     })
     @GetMapping(&quot;/saldo&quot;)
     public ResponseEntity&lt;SaldoResponseDTO&gt; consultarSaldo(TransacoesRequestDTO requestDTO){
-<span class="fc" id="L58">        SaldoResponseDTO saldoResponseDTO = transacoesFacade.consultarSaldo(requestDTO.getValorTransacao());</span>
-<span class="fc" id="L59">        return new ResponseEntity&lt;&gt;(saldoResponseDTO, HttpStatus.OK);</span>
+<span class="nc" id="L58">        SaldoResponseDTO saldoResponseDTO = transacoesFacade.consultarSaldo(requestDTO.getValorTransacao());</span>
+<span class="nc" id="L59">        return new ResponseEntity&lt;&gt;(saldoResponseDTO, HttpStatus.OK);</span>
     }
 
 }
