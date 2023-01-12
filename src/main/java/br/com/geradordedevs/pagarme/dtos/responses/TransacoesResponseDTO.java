@@ -1,6 +1,5 @@
 package br.com.geradordedevs.pagarme.dtos.responses;
 
-import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
