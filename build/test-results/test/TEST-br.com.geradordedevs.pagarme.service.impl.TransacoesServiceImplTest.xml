@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.geradordedevs.pagarme.service.impl.TransacoesServiceImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-12T14:00:40" hostname="mario-Inspiron-3501" time="0.04">
+  <properties/>
+  <testcase name="cadastrarTransacaoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.TransacoesServiceImplTest" time="0.033"/>
+  <testcase name="removerTransacaoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.TransacoesServiceImplTest" time="0.002"/>
+  <testcase name="listarTransacoesDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.TransacoesServiceImplTest" time="0.004"/>
+  <system-out><![CDATA[2023-01-12 11:00:40.772  INFO 13858 --- [    Test worker] b.c.g.p.s.impl.TransacoesServiceImpl     : cadastrando nova transação: TransacoesEntity{id=null, valorTransacao=100, descricaoTransacao='vinho', metodoPagamento=CREDIT_CARD, numeroCartao='1111 1111 1111 1111', nomePortador='JOSE SILVA', validadeCartao='12/26', pagamento=PagamentoEntity(id=null, status=WAITING_FUNDS, dataPagamento=2023-02-11)}
+2023-01-12 11:00:40.782  INFO 13858 --- [    Test worker] b.c.g.p.s.impl.TransacoesServiceImpl     : removendo transação id 1
+2023-01-12 11:00:40.786  INFO 13858 --- [    Test worker] b.c.g.p.s.impl.TransacoesServiceImpl     : listando as transações
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
