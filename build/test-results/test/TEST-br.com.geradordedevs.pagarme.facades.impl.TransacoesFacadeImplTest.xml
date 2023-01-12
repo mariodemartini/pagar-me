@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-12T18:18:48" hostname="mario-Inspiron-3501" time="0.18">
+  <properties/>
+  <testcase name="consultarSaldoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.143"/>
+  <testcase name="deletarTransacaoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.015"/>
+  <testcase name="cadastrarTransacaoCreditoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.008"/>
+  <testcase name="cadastrarTransacaoDebitoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.006"/>
+  <testcase name="listarTransacoesDeveRetornarOk" classname="br.com.geradordedevs.pagarme.facades.impl.TransacoesFacadeImplTest" time="0.006"/>
+  <system-out><![CDATA[2023-01-12 15:18:49.041  INFO 47177 --- [    Test worker] b.c.g.p.f.impl.TransacoesFacadeImpl      : consultando saldo
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-12T18:15:23" hostname="mario-Inspiron-3501" time="1.321">
+<testsuite name="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-12T18:18:49" hostname="mario-Inspiron-3501" time="0.063">
   <properties/>
-  <testcase name="criarPagamentoDebitoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" time="1.321"/>
-  <system-out><![CDATA[15:15:24.889 [Test worker] INFO br.com.geradordedevs.pagarme.services.impl.PagamentoServiceImpl - cadastrando pagamento de DEBITO
+  <testcase name="criarPagamentoCreditoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" time="0.06"/>
+  <testcase name="criarPagamentoDebitoDeveRetornarOk" classname="br.com.geradordedevs.pagarme.service.impl.PagamentoServiceImplTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-12 15:18:49.144  INFO 47177 --- [    Test worker] b.c.g.p.s.impl.PagamentoServiceImpl      : cadastrando pagamento de CREDITO
+2023-01-12 15:18:49.147  INFO 47177 --- [    Test worker] b.c.g.p.s.impl.PagamentoServiceImpl      : cadastrando pagamento de DEBITO
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

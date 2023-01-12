@@ -8,27 +8,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-<span class="nc" id="L11">@Slf4j</span>
-<span class="nc" id="L12">public class TransacoesServiceImpl implements TransacoesService {</span>
+<span class="fc" id="L11">@Slf4j</span>
+<span class="fc" id="L12">public class TransacoesServiceImpl implements TransacoesService {</span>
     @Autowired
     private TransacoesRepository transacoesRepository;
 
     @Override
     public Iterable&lt;TransacoesEntity&gt; listarTransacoes() {
-<span class="nc" id="L18">        log.info(&quot;listando as transações&quot;);</span>
-<span class="nc" id="L19">        return transacoesRepository.findAll();</span>
+<span class="fc" id="L18">        log.info(&quot;listando as transações&quot;);</span>
+<span class="fc" id="L19">        return transacoesRepository.findAll();</span>
     }
 
     @Override
     public TransacoesEntity cadastrarTransacao(TransacoesEntity transacoes){
-<span class="nc" id="L24">        log.info(&quot;cadastrando nova transação: {}&quot;,transacoes);</span>
-<span class="nc" id="L25">        return transacoesRepository.save(transacoes);</span>
+<span class="fc" id="L24">        log.info(&quot;cadastrando nova transação: {}&quot;,transacoes);</span>
+<span class="fc" id="L25">        return transacoesRepository.save(transacoes);</span>
     }
 
     @Override
     public void deletarTransacao(Long id) {
-<span class="nc" id="L30">        log.info(&quot;removendo transação id {}&quot;, id);</span>
-<span class="nc" id="L31">        transacoesRepository.deleteById(id);</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L30">        log.info(&quot;removendo transação id {}&quot;, id);</span>
+<span class="fc" id="L31">        transacoesRepository.deleteById(id);</span>
+<span class="fc" id="L32">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
