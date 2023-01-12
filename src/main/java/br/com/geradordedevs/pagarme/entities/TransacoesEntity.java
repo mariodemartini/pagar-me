@@ -23,7 +23,7 @@ public class TransacoesEntity {
     private String nomePortador;
     private String validadeCartao;
     private String cvv;
-    @ManyToOne
+    @OneToOne
     private PagamentoEntity pagamento;
 
     public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {
