@@ -2,6 +2,29 @@ plugins {
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'java'
+	id 'org.sonarqube' version '3.5.0.2730'
+	id 'jacoco'
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+	}
+}
+test.finalizedBy jacocoTestReport
+
+sonarqube {
+	properties {
+		property "sonar.coverage.exclusions",
+				"**/DesafioPagarMeApplication.java," +
+				"**/configurations/**," +
+						"**/dtos/**," +
+						"**/entities/**," +
+						"**/enums/**," +
+						"**/exceptions/**," +
+						"**/mappers/**," +
+						"**/repositories/** "
+	}
 }
 
 group = 'br.com.geradordedevs.pagarme'
@@ -20,8 +43,12 @@ dependencies {
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.0.0'
+	testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.9'
+	testImplementation group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.9'
+	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.14.1'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	implementation 'org.jacoco:org.jacoco.agent:0.7.9'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
