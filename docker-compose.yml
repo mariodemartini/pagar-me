@@ -8,4 +8,4 @@ services:
       - ./tmp:/app/tmp
       - ./log:/app/log
     ports:
-      - '8081:8081'
+      - '8080:8080'
