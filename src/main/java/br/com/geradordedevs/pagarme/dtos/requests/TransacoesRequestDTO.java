@@ -14,19 +14,26 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransacoesRequestDTO {
-    @NotNull(message = "campo obrigatorio")
+
+    @NotNull(message = "campo obrigatorio") //TODO identação
     private BigDecimal valorTransacao;
+
     @NotBlank(message = "campo obrigatorio")
     private String descricaoTransacao;
+
     @NotNull(message = "campo obrigatorio")
     private MetodoPagamentoEnum metodoPagamento;
+
     @NotBlank(message = "campo obrigatorio")
     @Size(min = 19, max = 19, message = "numero do cartao invalido")
     private String numeroCartao;
+
     @NotBlank(message = "campo obrigatorio")
     private String nomePortador;
+
     @NotNull(message = "campo obrigatorio")
     private String validadeCartao;
+
     @NotBlank(message = "campo obrigatorio")
     @Size(min = 3, max = 3, message = "codigo de segurança invalido")
     private String cvv;

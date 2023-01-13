@@ -14,15 +14,16 @@ import java.time.LocalDate;
 @Service
 @Slf4j
 public class PagamentoServiceImpl implements PagamentoService {
-    @Autowired
+
+    @Autowired //todo identação
     private PagamentoRepository pagamentoRepository;
 
     @Override
     public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento){
-        PagamentoEntity pagamento = new PagamentoEntity();
+        PagamentoEntity pagamento = new PagamentoEntity(); //todo identação
         if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){
             log.info("cadastrando pagamento de CREDITO");
-            pagamento.setDataPagamento(LocalDate.now().plusDays(30));
+            pagamento.setDataPagamento(LocalDate.now().plusDays(30)); //todo muito bom
             pagamento.setStatus(StatusPagamentoEnum.WAITING_FUNDS);
         }
         if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){

@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransacoesEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -23,6 +24,7 @@ public class TransacoesEntity {
     private String nomePortador;
     private String validadeCartao;
     private String cvv;
+
     @OneToOne
     private PagamentoEntity pagamento;
 

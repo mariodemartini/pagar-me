@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransacoesEntity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pagar-me</a> &gt; <a href="index.source.html" class="el_package">br.com.geradordedevs.pagarme.entities</a> &gt; <span class="el_source">TransacoesEntity.java</span></div><h1>TransacoesEntity.java</h1><pre class="source lang-java linenums">package br.com.geradordedevs.pagarme.entities;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransacoesEntity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pagar-me</a> &gt; <a href="index.source.html" class="el_package">br.com.geradordedevs.pagarme.entities</a> &gt; <span class="el_source">TransacoesEntity.java</span></div><h1>TransacoesEntity.java</h1><pre class="source lang-java linenums">package br.com.geradordedevs.pagarme.entities;
 
 import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
 import lombok.AllArgsConstructor;
@@ -9,37 +9,39 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-<span class="pc bpc" id="L12" title="54 of 78 branches missed.">@Data</span>
+<span class="nc bnc" id="L12" title="All 78 branches missed.">@Data</span>
 <span class="nc" id="L13">@NoArgsConstructor</span>
-<span class="fc" id="L14">@AllArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
 public class TransacoesEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-<span class="fc" id="L18">    private Long id;</span>
-<span class="fc" id="L19">    private BigDecimal valorTransacao;</span>
-<span class="fc" id="L20">    private String descricaoTransacao;</span>
-<span class="fc" id="L21">    private MetodoPagamentoEnum metodoPagamento;</span>
-<span class="fc" id="L22">    private String numeroCartao;</span>
-<span class="fc" id="L23">    private String nomePortador;</span>
-<span class="fc" id="L24">    private String validadeCartao;</span>
-<span class="fc" id="L25">    private String cvv;</span>
-    @OneToOne
-<span class="fc" id="L27">    private PagamentoEntity pagamento;</span>
+<span class="nc" id="L19">    private Long id;</span>
+<span class="nc" id="L20">    private BigDecimal valorTransacao;</span>
+<span class="nc" id="L21">    private String descricaoTransacao;</span>
+<span class="nc" id="L22">    private MetodoPagamentoEnum metodoPagamento;</span>
+<span class="nc" id="L23">    private String numeroCartao;</span>
+<span class="nc" id="L24">    private String nomePortador;</span>
+<span class="nc" id="L25">    private String validadeCartao;</span>
+<span class="nc" id="L26">    private String cvv;</span>
 
-<span class="fc" id="L29">    public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {</span>
-<span class="fc" id="L30">        this.valorTransacao = valorTransacao;</span>
-<span class="fc" id="L31">        this.descricaoTransacao = descricaoTransacao;</span>
-<span class="fc" id="L32">        this.metodoPagamento = metodoPagamento;</span>
-<span class="fc" id="L33">        this.numeroCartao = numeroCartao;</span>
-<span class="fc" id="L34">        this.nomePortador = nomePortador;</span>
-<span class="fc" id="L35">        this.validadeCartao = validadeCartao;</span>
-<span class="fc" id="L36">        this.cvv = cvv;</span>
-<span class="fc" id="L37">        this.pagamento = pagamento;</span>
-<span class="fc" id="L38">    }</span>
+    @OneToOne
+<span class="nc" id="L29">    private PagamentoEntity pagamento;</span>
+
+<span class="nc" id="L31">    public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {</span>
+<span class="nc" id="L32">        this.valorTransacao = valorTransacao;</span>
+<span class="nc" id="L33">        this.descricaoTransacao = descricaoTransacao;</span>
+<span class="nc" id="L34">        this.metodoPagamento = metodoPagamento;</span>
+<span class="nc" id="L35">        this.numeroCartao = numeroCartao;</span>
+<span class="nc" id="L36">        this.nomePortador = nomePortador;</span>
+<span class="nc" id="L37">        this.validadeCartao = validadeCartao;</span>
+<span class="nc" id="L38">        this.cvv = cvv;</span>
+<span class="nc" id="L39">        this.pagamento = pagamento;</span>
+<span class="nc" id="L40">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L42">        return &quot;TransacoesEntity{&quot; +</span>
+<span class="nc" id="L44">        return &quot;TransacoesEntity{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, valorTransacao=&quot; + valorTransacao +
                 &quot;, descricaoTransacao='&quot; + descricaoTransacao + '\'' +

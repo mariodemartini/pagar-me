@@ -11,8 +11,10 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaldoResponseDTO {
-    @JsonProperty("valor recebido")
+
+    @JsonProperty("valor_recebido")
     private BigDecimal saldoDebito;
-    @JsonProperty("valor à receber")
+
+    @JsonProperty("valor_a_receber")
     private BigDecimal saldoCredito;
 }

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PagamentoResponseDTO {
+
     private StatusPagamentoEnum status;
     private LocalDate dataPagamento;
 }

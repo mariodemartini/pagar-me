@@ -20,12 +20,16 @@ import java.util.List;
 @Component
 @Slf4j
 public class TransacoesFacadeImpl implements TransacoesFacade {
+
     @Autowired
     private TransacoesService transacoesService;
+
     @Autowired
     private PagamentoService pagamentoService;
+
     @Autowired
     private TransacoesMapper mapper;
+
     @Autowired
     private PagamentoMapper pagamentoMapper;
 
@@ -46,9 +50,10 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
     }
 
     public SaldoResponseDTO consultarSaldo(BigDecimal valor){
+        log.info("consultando saldo");
         BigDecimal saldoDebito = BigDecimal.ZERO;
         BigDecimal saldoCredito = BigDecimal.ZERO;
-        log.info("consultando saldo");
+
         for (TransacoesEntity transacoesEntity : transacoesService.listarTransacoes()) {
             if (transacoesEntity.getMetodoPagamento() == MetodoPagamentoEnum.DEBIT_CARD){
                 BigDecimal valorTaxa = transacoesEntity.getValorTransacao().multiply(new BigDecimal("0.03"));
@@ -60,9 +65,11 @@ public class TransacoesFacadeImpl implements TransacoesFacade {
                 saldoCredito = saldoCredito.add(valorLiquido);
             }
         }
+
         SaldoResponseDTO saldoResponseDTO = new SaldoResponseDTO();
         saldoResponseDTO.setSaldoCredito(saldoCredito);
         saldoResponseDTO.setSaldoDebito(saldoDebito);
+
         return saldoResponseDTO;
     }
 

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.http.ResponseEntity;
+
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = false)

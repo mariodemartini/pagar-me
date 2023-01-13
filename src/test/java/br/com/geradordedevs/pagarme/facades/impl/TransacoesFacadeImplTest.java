@@ -32,10 +32,13 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.Silent.class)
 @SpringBootTest
 public class TransacoesFacadeImplTest {
+
     @InjectMocks
     private TransacoesFacadeImpl transacoesFacade;
+
     @Mock
     private TransacoesService transacoesService;
+
     @Mock
     private PagamentoService pagamentoService;
     @Mock
@@ -72,7 +75,6 @@ public class TransacoesFacadeImplTest {
         when(mapper.paraEntidade(retornaObjetoTransacoesRequestDTOCredito())).thenReturn(retornaObjetoTransacoesEntityCredito());
 
         when(pagamentoMapper.paraDTO(retornaObjetoPagamentoDebitoEntity())).thenReturn(retornaObjetoPagamentoDebitoResponseDTO());
-
     }
 
     @Test

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Slf4j
 public class PagamentoMapper {
+
     @Autowired
     private final ModelMapper mapper;
 

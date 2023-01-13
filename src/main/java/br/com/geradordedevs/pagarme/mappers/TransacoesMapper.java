@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Slf4j
 public class TransacoesMapper {
+
     @Autowired
     private final ModelMapper mapper;
 
@@ -33,17 +34,19 @@ public class TransacoesMapper {
     public TransacoesEntity paraEntidade(TransacoesRequestDTO requestDTO){
         log.info("convertendo DTO para entidade: {}", requestDTO);
         TransacoesEntity transacoesEntity = mapper.map(requestDTO, TransacoesEntity.class);
+
         PagamentoEntity pagamentoEntity = pagamentoService.criarPagamento(transacoesEntity.getMetodoPagamento());
         transacoesEntity.setPagamento(pagamentoEntity);
+
         return transacoesEntity;
     }
 
     public List<TransacoesResponseDTO> paraListaDTO(Iterable<TransacoesEntity> lista){
         log.info("convertendo lista entidade para lista DTO: {}", lista);
         List<TransacoesEntity> resultado = new ArrayList<>();
+
         lista.forEach(resultado::add);
-        return resultado.stream()
-                .map(this::paraDTO)
-                .collect(Collectors.toList());
+
+        return resultado.stream().map(this::paraDTO).toList();
     }
 }

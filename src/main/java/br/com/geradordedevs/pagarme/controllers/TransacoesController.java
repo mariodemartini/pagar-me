@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/transacoes")
 public class TransacoesController {
+
     @Autowired
     private TransacoesFacade transacoesFacade;
 
@@ -58,5 +59,4 @@ public class TransacoesController {
         SaldoResponseDTO saldoResponseDTO = transacoesFacade.consultarSaldo(requestDTO.getValorTransacao());
         return new ResponseEntity<>(saldoResponseDTO, HttpStatus.OK);
     }
-
 }

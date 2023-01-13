@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransacoesResponseDTO {
+
     private Long id;
     private BigDecimal valorTransacao;
     private String descricaoTransacao;
