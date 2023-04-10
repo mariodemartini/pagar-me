@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PagamentoServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pagar-me</a> &gt; <a href="index.source.html" class="el_package">br.com.geradordedevs.pagarme.services.impl</a> &gt; <span class="el_source">PagamentoServiceImpl.java</span></div><h1>PagamentoServiceImpl.java</h1><pre class="source lang-java linenums">package br.com.geradordedevs.pagarme.services.impl;
+
+import br.com.geradordedevs.pagarme.entities.PagamentoEntity;
+import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
+import br.com.geradordedevs.pagarme.enums.StatusPagamentoEnum;
+import br.com.geradordedevs.pagarme.repositories.PagamentoRepository;
+import br.com.geradordedevs.pagarme.services.PagamentoService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+
+@Service
+<span class="nc" id="L15">@Slf4j</span>
+<span class="nc" id="L16">public class PagamentoServiceImpl implements PagamentoService {</span>
+
+    @Autowired //todo identação
+    private PagamentoRepository pagamentoRepository;
+
+    @Override
+    public PagamentoEntity criarPagamento(MetodoPagamentoEnum metodoPagamento){
+<span class="nc" id="L23">        PagamentoEntity pagamento = new PagamentoEntity(); //todo identação</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (metodoPagamento == MetodoPagamentoEnum.CREDIT_CARD){</span>
+<span class="nc" id="L25">            log.info(&quot;cadastrando pagamento de CREDITO&quot;);</span>
+<span class="nc" id="L26">            pagamento.setDataPagamento(LocalDate.now().plusDays(30)); //todo muito bom</span>
+<span class="nc" id="L27">            pagamento.setStatus(StatusPagamentoEnum.WAITING_FUNDS);</span>
+        }
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (metodoPagamento == MetodoPagamentoEnum.DEBIT_CARD){</span>
+<span class="nc" id="L30">            log.info(&quot;cadastrando pagamento de DEBITO&quot;);</span>
+<span class="nc" id="L31">            pagamento.setDataPagamento(LocalDate.now());</span>
+<span class="nc" id="L32">            pagamento.setStatus(StatusPagamentoEnum.PAID);</span>
+        }
+<span class="nc" id="L34">        return pagamentoRepository.save(pagamento);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

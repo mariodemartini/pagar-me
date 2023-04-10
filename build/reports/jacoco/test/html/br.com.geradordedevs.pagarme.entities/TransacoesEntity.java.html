@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransacoesEntity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pagar-me</a> &gt; <a href="index.source.html" class="el_package">br.com.geradordedevs.pagarme.entities</a> &gt; <span class="el_source">TransacoesEntity.java</span></div><h1>TransacoesEntity.java</h1><pre class="source lang-java linenums">package br.com.geradordedevs.pagarme.entities;
+
+import br.com.geradordedevs.pagarme.enums.MetodoPagamentoEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+@Entity
+<span class="nc bnc" id="L12" title="All 78 branches missed.">@Data</span>
+<span class="nc" id="L13">@NoArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
+public class TransacoesEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+<span class="nc" id="L19">    private Long id;</span>
+<span class="nc" id="L20">    private BigDecimal valorTransacao;</span>
+<span class="nc" id="L21">    private String descricaoTransacao;</span>
+<span class="nc" id="L22">    private MetodoPagamentoEnum metodoPagamento;</span>
+<span class="nc" id="L23">    private String numeroCartao;</span>
+<span class="nc" id="L24">    private String nomePortador;</span>
+<span class="nc" id="L25">    private String validadeCartao;</span>
+<span class="nc" id="L26">    private String cvv;</span>
+
+    @OneToOne
+<span class="nc" id="L29">    private PagamentoEntity pagamento;</span>
+
+<span class="nc" id="L31">    public TransacoesEntity(BigDecimal valorTransacao, String descricaoTransacao, MetodoPagamentoEnum metodoPagamento, String numeroCartao, String nomePortador, String validadeCartao, String cvv, PagamentoEntity pagamento) {</span>
+<span class="nc" id="L32">        this.valorTransacao = valorTransacao;</span>
+<span class="nc" id="L33">        this.descricaoTransacao = descricaoTransacao;</span>
+<span class="nc" id="L34">        this.metodoPagamento = metodoPagamento;</span>
+<span class="nc" id="L35">        this.numeroCartao = numeroCartao;</span>
+<span class="nc" id="L36">        this.nomePortador = nomePortador;</span>
+<span class="nc" id="L37">        this.validadeCartao = validadeCartao;</span>
+<span class="nc" id="L38">        this.cvv = cvv;</span>
+<span class="nc" id="L39">        this.pagamento = pagamento;</span>
+<span class="nc" id="L40">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L44">        return &quot;TransacoesEntity{&quot; +</span>
+                &quot;id=&quot; + id +
+                &quot;, valorTransacao=&quot; + valorTransacao +
+                &quot;, descricaoTransacao='&quot; + descricaoTransacao + '\'' +
+                &quot;, metodoPagamento=&quot; + metodoPagamento +
+                &quot;, numeroCartao='&quot; + numeroCartao + '\'' +
+                &quot;, nomePortador='&quot; + nomePortador + '\'' +
+                &quot;, validadeCartao='&quot; + validadeCartao + '\'' +
+                &quot;, pagamento=&quot; + pagamento +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

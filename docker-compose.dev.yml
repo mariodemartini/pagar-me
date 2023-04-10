@@ -6,17 +6,16 @@ services:
     entrypoint: [ "sh", "-c", "java -cp app:app/lib/* br.com.geradordedevs.pagarme.DesafioPagarMeApplication" ]
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_DATASOURCE_URL=jdbc:mysql://pagarme-db:3306/db_pagarme?autoReconnect=true&useSSL=false
-    ports:
-      - 8080:8080
-    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://pagarme-db:3306/db_pagarme?createDatabaseIfNotExist=true
       - DATABASE_HOST=db-pagarme
       - DATABASE_USER=db_pagarme
       - DATABASE_PASSWORD=123456
       - DATABASE_NAME=db_pagarme
       - DATABASE_PORT=3306
+
     depends_on:
       - db-pagarme
+
   db-pagarme:
     image: mysql:8.0
     container_name: pagarme-db
@@ -26,6 +25,6 @@ services:
       - MYSQL_USER=db_pagarme
       - MYSQL_PASSWORD=123456
     ports:
-      - 3307:3306
+      - "3306:3306"
     volumes:
       - ./data/db:/data/db
